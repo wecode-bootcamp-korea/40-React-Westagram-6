@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import '../../../styles/taeyoon/mixin.scss';
+@import '../../../styles/taeyoon/variables.scss';
+
+
+body {
+  background-color: $background_color;
+}
+
+.login__container {
+  border: $border_style;
+  padding: 20px;
+  margin: 20px auto;
+  width: 40vw;
+  min-width: 450px;
+  background-color: $white;
+}
+
+/* title은 inline 요소라서 display block 설정해줘야 보임 */
+.login__logo {
+  display: block;
+  font-family: 'Lobster', cursive;
+  font-size: 50px;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 60px;
+}
+
+/* 로그인폼 */
+.login__form {
+  @include flex_column;
+
+  margin: 0 auto 100px;
+  width: 400px;
+
+  &--input {
+    border: $border_style;
+    padding: 15px;
+    background-color: $background_color;
+    border-radius: 5px;
+    margin-bottom: 20px;
+
+    &::placeholder {
+      opacity: 0.6;
+    }
+    &:first-child {
+      margin-bottom: 10px;
+    }
+  }
+
+  &--btn {
+    padding: 10px;
+    color: $white;
+    background-color: #c5e1fc;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+  }
+}
+
+/* 비밀번호 찾기*/
+.login__findpw {
+  text-align: center;
+
+  a {
+    text-decoration: none;
+    color: #375e87;
+    font-size: 14px;
+  }
+}
