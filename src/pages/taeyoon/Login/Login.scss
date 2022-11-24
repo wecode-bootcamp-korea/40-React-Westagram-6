@@ -1,7 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
-@import '../../../styles/taeyoon/mixin.scss';
-@import '../../../styles/taeyoon/variables.scss';
-
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+@import "../../../styles/taeyoon/mixin.scss";
+@import "../../../styles/taeyoon/variables.scss";
 
 body {
   background-color: $background_color;
@@ -19,7 +18,7 @@ body {
 /* title은 inline 요소라서 display block 설정해줘야 보임 */
 .login__logo {
   display: block;
-  font-family: 'Lobster', cursive;
+  font-family: "Lobster", cursive;
   font-size: 50px;
   text-align: center;
   margin-top: 20px;
@@ -51,10 +50,15 @@ body {
   &--btn {
     padding: 10px;
     color: $white;
-    background-color: #c5e1fc;
+    background-color: royalblue;
+    cursor: pointer;
     border-radius: 5px;
     border: none;
     font-size: 16px;
+    &:disabled {
+      background-color: #c5e1fc;
+      cursor: default;
+    }
   }
 }
 
