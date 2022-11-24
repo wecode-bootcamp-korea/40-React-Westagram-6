@@ -46,6 +46,7 @@ const Login = () => {
       <title className="login__logo">Westagram</title>
 
       <LoginForm />
+
       <footer className="login__findpw">
         <a href="/main-taeyoon">비밀번호를 잊으셨나요?</a>
       </footer>
