@@ -1,5 +1,11 @@
-@import '../../../styles/taeyoon/mixin.scss';
-@import '../../../styles/taeyoon/variables.scss';
+@import "../../../styles/taeyoon/mixin.scss";
+@import "../../../styles/taeyoon/variables.scss";
+
+// a태그 리셋
+a {
+  color: inherit;
+  text-decoration: none;
+}
 
 /* 메인 왼쪽 */
 .main {
@@ -154,7 +160,8 @@
 .story__list img {
   border: 1px solid transparent;
   border-radius: 50%;
-  background-image: linear-gradient(#fff, #fff), linear-gradient(to right, red 0%, orange 100%);
+  background-image: linear-gradient(#fff, #fff),
+    linear-gradient(to right, red 0%, orange 100%);
   background-origin: border-box;
   background-clip: content-box, border-box;
   padding: 1px;
@@ -228,7 +235,7 @@
 }
 
 .speech-bubble:after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 80%;
