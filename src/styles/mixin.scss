@@ -1,0 +1,56 @@
+@mixin flex($direction, $justify, $align) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+@mixin blueTxt {
+  color: rgb(0, 110, 253);
+}
+
+@mixin greyTxt {
+  color: rgb(204, 204, 204);
+}
+
+@mixin borderStyle {
+  border: 1px solid rgb(234, 234, 234);
+  border-radius: 3px;
+}
+
+@mixin profileStyle {
+  border: 0.3% solid rgb(234, 234, 234);
+  object-fit: cover;
+  object-position: bottom;
+  border-radius: 50%;
+}
+
+@mixin westagramFont {
+  color: black;
+  font-family: "Lobster", cursive;
+}
+
+@mixin profileTxt {
+  font-size: 13px;
+  font-weight: bold;
+}
+
+@mixin blueTxt {
+  color: rgb(0, 110, 253);
+}
+
+.option {
+  margin: 10px;
+}
+
+.right {
+  margin-left: 10px;
+}
+
+.icons {
+  margin: 0px 3px;
+}
+
+@mixin marginDefault {
+  margin: 5px 5px;
+}
