@@ -10,6 +10,12 @@ const Feed = () => {
   console.log("comment : ", comment);
   console.log("commentList : ", commentList);
 
+  const onChange = e => {
+    console.log("eventValue : ", e.target.value);
+    // e.preventDefault();
+    setComment(e.target.value);
+  };
+
   const onSubmit = e => {
     e.preventDefault();
     const value = e.target[0].value;
@@ -17,10 +23,10 @@ const Feed = () => {
     setComment("");
   };
 
-  const onChange = e => {
-    console.log("eventValue : ", e.target.value);
-    // e.preventDefault();
-    setComment(e.target.value);
+  const deleteComment = e => {
+    const deleteBtn = e.target.parentElement;
+    console.log(e.target.parentElement);
+    deleteBtn.remove();
   };
 
   const Comment = commentList.map((el, i) => {
@@ -29,7 +35,9 @@ const Feed = () => {
         <span>작성자</span>
         <span>{el}</span>
         <span />
-        <button className="delete_comment">❌</button>
+        <button onClick={deleteComment} className="delete_comment">
+          ❌
+        </button>
       </li>
     );
   });
