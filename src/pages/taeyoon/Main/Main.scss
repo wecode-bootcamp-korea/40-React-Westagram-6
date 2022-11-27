@@ -79,6 +79,10 @@ a {
     font-weight: 600;
     margin-right: 6px;
   }
+
+  & li {
+    @include flex(space-between, center)
+  }
 }
 
 /* 피드 작성시간 */
@@ -252,7 +256,7 @@ a {
   color: red;
 }
 
-i:hover {
+.fontAwesome:hover {
   transition: 0.3s;
   animation-name: BlowUp;
   animation-duration: 0.4s;
