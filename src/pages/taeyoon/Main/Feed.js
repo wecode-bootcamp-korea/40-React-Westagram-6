@@ -23,6 +23,17 @@ const Feed = () => {
     setComment(e.target.value);
   };
 
+  const Comment = commentList.map((el, i) => {
+    return (
+      <li key={i}>
+        <span>작성자</span>
+        <span>{el}</span>
+        <span />
+        <button className="delete_comment">❌</button>
+      </li>
+    );
+  });
+
   return (
     <div className="main__left">
       <article className="feed">
@@ -92,7 +103,7 @@ const Feed = () => {
         <div className="feed__comment">
           <ul className="feed__comment--list">
             {/* 자바스크립트에서 추가될 공간 */}
-            {}
+            {Comment}
           </ul>
         </div>
 
