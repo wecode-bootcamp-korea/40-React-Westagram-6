@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Main.scss";
+import Comment from "./Comment";
 import "../../../styles/taeyoon/nav.scss";
 import "../../../styles/taeyoon/user.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -13,12 +14,7 @@ const Feed = () => {
   const [commentList, setCommentList] = useState([]);
   const [comment, setComment] = useState("");
 
-  // console.log("comment : ", comment);
-  // console.log("commentList : ", commentList);
-
   const onChange = e => {
-    // console.log("eventValue : ", e.target.value);
-    // e.preventDefault();
     setComment(e.target.value);
   };
 
@@ -34,38 +30,36 @@ const Feed = () => {
 
   const deleteComment = e => {
     const li = e.target.parentElement.parentElement;
-    // console.log(li);
     li.remove();
   };
 
   const toggleHeart = e => {
-    console.log(e.target);
     const heart = e.target;
     heart.classList.toggle("icon__red");
   };
 
-  const Comment = commentList.map((el, i) => {
-    return (
-      <li key={i}>
-        <div>
-          <span>작성자</span>
-          <span>{el}</span>
-        </div>
-        <div>
-          <span>
-            <FontAwesomeIcon
-              onClick={toggleHeart}
-              className="fontAwesome"
-              icon="fa-solid fa-heart"
-            />
-          </span>
-          <button onClick={deleteComment} className="delete_comment">
-            ❌
-          </button>
-        </div>
-      </li>
-    );
-  });
+  // const CommentList = commentList.map((el, i) => {
+  //   return (
+  //     <li key={i}>
+  //       <div>
+  //         <span>작성자</span>
+  //         <span>{el}</span>
+  //       </div>
+  //       <div>
+  //         <span>
+  //           <FontAwesomeIcon
+  //             onClick={toggleHeart}
+  //             className="fontAwesome"
+  //             icon="fa-solid fa-heart"
+  //           />
+  //         </span>
+  //         <button onClick={deleteComment} className="delete_comment">
+  //           ❌
+  //         </button>
+  //       </div>
+  //     </li>
+  //   );
+  // });
 
   return (
     <div className="main__left">
@@ -139,7 +133,18 @@ const Feed = () => {
         <div className="feed__comment">
           <ul className="feed__comment--list">
             {/* 댓글 리스트 */}
-            {Comment}
+            {/* {Comment} */}
+            {commentList.map((el, i) => {
+              return (
+                <Comment
+                  key={i}
+                  deleteComment={deleteComment}
+                  toggleHeart={toggleHeart}
+                  userName="작성자"
+                  commentList={el}
+                />
+              );
+            })}
           </ul>
         </div>
 
