@@ -1,5 +1,4 @@
 import React from "react";
-import { Navigate } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import "./Login.scss";
@@ -13,23 +12,34 @@ const Login = () => {
 
   const [id, setId] = useState("");
   const [pw, setPw] = useState("");
+  const [disabled, setDisable] = useState("");
+  const [loginMsg, setLoginMsg] = useState("✅ ID 또는 비밀번호를 확인하세요");
+  const [btnColor, setBtnColor] = useState("");
 
   const saveUserId = e => {
     setId(e.target.value);
+    checkValid();
   };
-
   const saveUserPw = e => {
     setPw(e.target.value);
+    checkValid();
   };
-  /*
-  2. setId/setPw 값 유효성 검사
-    => id : @포함 5자 이상
-    => pw : 5자 이상
 
+  const checkValid = () => {
+    if (id.includes("@") && pw.length >= 5) {
+      setDisable(false);
+      setLoginMsg("✅");
+      setBtnColor(1);
+      console.log(true);
+    } else {
+      setDisable(true);
+      setLoginMsg("✅ ID 또는 비밀번호를 확인하세요");
+      setBtnColor(0.5);
+      console.log(false);
+    }
   };
-  3. id/pw false => 조건 red msg
-  4. 둘다 true => goToMain
-*/
+
+  // console.log(id, ":", pw, ":", disabled, ":", loginMsg, ":", btnColor);
 
   return (
     <div className="login">
@@ -49,13 +59,19 @@ const Login = () => {
             onChange={saveUserPw}
             placeholder="비밀번호"
           />
-
-          <button type="button" className="btn" onClick={goToMain}>
+          <button
+            type="button"
+            className="btn"
+            onClick={goToMain}
+            disabled={disabled}
+            style={{ opacity: btnColor }}
+          >
             로그인
           </button>
+          <p className="checkInput">{loginMsg}</p>
         </div>
         <footer className="lostPw">
-          <p>비밀번호를 잊으셨나요?</p>
+          <p className="lostPw">비밀번호를 잊으셨나요?</p>
         </footer>
       </main>
     </div>
