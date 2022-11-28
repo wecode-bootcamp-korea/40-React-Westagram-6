@@ -1,5 +1,5 @@
-@import './mixin.scss';
-@import './variables.scss';
+@import "./mixin.scss";
+@import "./variables.scss";
 
 body {
   background-color: $background_color;
@@ -50,7 +50,7 @@ body {
       }
 
       /* 프로필 팝업 */
-      .nav__popup {
+      .speech-bubble {
         position: absolute;
         top: 55px;
         right: -52px;
@@ -60,7 +60,7 @@ body {
   }
 }
 
-.active {
+.speech-bubble .active {
   display: block;
 }
 

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Recommend = () => {
   return (
@@ -18,7 +19,7 @@ const Recommend = () => {
         </div>
       </div>
       <div className="user__right">
-        <a href="#">팔로우</a>
+        <Link to="#">팔로우</Link>
       </div>
     </div>
   );

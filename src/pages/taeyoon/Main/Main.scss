@@ -81,7 +81,7 @@ a {
   }
 
   & li {
-    @include flex(space-between, center)
+    @include flex(space-between, center);
   }
 }
 
@@ -148,7 +148,7 @@ a {
   height: 240px;
   padding: 10px 0;
   background-color: white;
-  overflow: hidden;
+  overflow: auto;
 }
 
 .story__header {
@@ -214,6 +214,14 @@ a {
 
 /* 말풍선 */
 
+.speech-bubble {
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+  position: relative;
+  border-radius: 0.7em;
+  width: 330px;
+  background-color: $white;
+}
+
 .speech-box {
   display: flex;
   align-items: center;
@@ -228,14 +236,6 @@ a {
 
 .speech-bubble .logout {
   border-top: 1px solid rgba(0, 0, 0, 0.2);
-}
-
-.speech-bubble {
-  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
-  position: relative;
-  border-radius: 0.7em;
-  width: 330px;
-  background-color: $white;
 }
 
 .speech-bubble:after {

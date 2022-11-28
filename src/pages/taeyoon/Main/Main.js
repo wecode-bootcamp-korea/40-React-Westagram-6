@@ -1,9 +1,5 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { fab } from "@fortawesome/free-brands-svg-icons";
-import { far } from "@fortawesome/free-regular-svg-icons";
-import { fas } from "@fortawesome/free-solid-svg-icons";
+// import { Link } from "react-router-dom";
 import Feed from "./Feed";
 import Recommend from "../../../components/taeyoon/Recommend";
 import Story from "../../../components/taeyoon/Story";
@@ -12,7 +8,7 @@ import "../../../styles/reset.scss";
 import "./Main.scss";
 import "../../../styles/taeyoon/nav.scss";
 import "../../../styles/taeyoon/user.scss";
-library.add(fab, far, fas);
+import Footer from "../../../components/taeyoon/Footer";
 
 const Main = () => {
   return (
@@ -92,45 +88,11 @@ const Main = () => {
           </div>
 
           {/* 오른쪽 푸터 */}
-          <div className="main__right--footer">
-            <ul className="footer__list">
-              <li>Instagram 정보 ·</li>
-              <li>지원 ·</li>
-              <li>홍보 센터 ·</li>
-              <li>API ·</li>
-              <li>채용 정보 ·</li>
-              <li>개인정보처리방침 ·</li>
-              <li>약관 ·</li>
-              <li>디렉토리 ·</li>
-              <li>프로필 ·</li>
-              <li>해시태그 ·</li>
-              <li>언어</li>
-            </ul>
-            <span>ⓒ 2022 INSTAGRAM</span>
-          </div>
+          <Footer />
         </div>
       </main>
-
-      {/* 프로필 컨테이너 */}
-      {/* 
-      <div className="user__container">
-        <div className="user__left">
-          <div className="user__img">
-            src="/images/taeyoon/profile.jpg" alt="프사" width="32px" />
-          </div>
-          <div className="user__info">
-            <div className="user__info--name">wecode_bootcamp</div>
-            <div className="user__info--text">Wecode | 위코드</div>
-          </div>
-        </div>
-
-        <div className="user__right">
-          <a href="#">팔로우</a>
-        </div>
-      </div> */}
-
       {/* 검색창 */}
-      <div className="speech-bubble">
+      {/* <div className="speech-bubble">
         <div className="speech-box">
           <div className="user__container">
             <div className="user__left">
@@ -149,11 +111,11 @@ const Main = () => {
             </div>
 
             <div className="user__right">
-              <a href="#">팔로우</a>
+              <Link to="#">팔로우</Link>
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </>
   );
 };

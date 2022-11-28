@@ -28,16 +28,6 @@ const Feed = () => {
     setComment("");
   };
 
-  const deleteComment = e => {
-    const li = e.target.parentElement.parentElement;
-    li.remove();
-  };
-
-  const toggleHeart = e => {
-    const heart = e.target;
-    heart.classList.toggle("icon__red");
-  };
-
   return (
     <div className="main__left">
       <article className="feed">
@@ -111,15 +101,7 @@ const Feed = () => {
           <ul className="feed__comment--list">
             {/* 댓글 리스트 */}
             {commentList.map((el, i) => {
-              return (
-                <Comment
-                  key={i}
-                  deleteComment={deleteComment}
-                  toggleHeart={toggleHeart}
-                  userName="작성자"
-                  comment={el}
-                />
-              );
+              return <Comment key={i} userName="작성자" comment={el} />;
             })}
           </ul>
         </div>
