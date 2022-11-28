@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import "./Main.scss";
-import Comment from "./Comment";
-import "../../../styles/taeyoon/nav.scss";
-import "../../../styles/taeyoon/user.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import { far } from "@fortawesome/free-regular-svg-icons";
 import { fas } from "@fortawesome/free-solid-svg-icons";
+import "./Main.scss";
+import "../../../styles/taeyoon/nav.scss";
+import "../../../styles/taeyoon/user.scss";
+import Comment from "./Comment";
 library.add(fab, far, fas);
 
 const Feed = () => {
@@ -37,29 +37,6 @@ const Feed = () => {
     const heart = e.target;
     heart.classList.toggle("icon__red");
   };
-
-  // const CommentList = commentList.map((el, i) => {
-  //   return (
-  //     <li key={i}>
-  //       <div>
-  //         <span>작성자</span>
-  //         <span>{el}</span>
-  //       </div>
-  //       <div>
-  //         <span>
-  //           <FontAwesomeIcon
-  //             onClick={toggleHeart}
-  //             className="fontAwesome"
-  //             icon="fa-solid fa-heart"
-  //           />
-  //         </span>
-  //         <button onClick={deleteComment} className="delete_comment">
-  //           ❌
-  //         </button>
-  //       </div>
-  //     </li>
-  //   );
-  // });
 
   return (
     <div className="main__left">
@@ -133,7 +110,6 @@ const Feed = () => {
         <div className="feed__comment">
           <ul className="feed__comment--list">
             {/* 댓글 리스트 */}
-            {/* {Comment} */}
             {commentList.map((el, i) => {
               return (
                 <Comment
@@ -141,7 +117,7 @@ const Feed = () => {
                   deleteComment={deleteComment}
                   toggleHeart={toggleHeart}
                   userName="작성자"
-                  commentList={el}
+                  comment={el}
                 />
               );
             })}
@@ -153,7 +129,7 @@ const Feed = () => {
 
         {/* 피드 댓글작성 */}
         <div className="feed__input" onSubmit={onSubmit}>
-          <form className="feed__input--form">
+          <form className="feed\__input--form">
             <input
               onChange={onChange}
               value={comment}

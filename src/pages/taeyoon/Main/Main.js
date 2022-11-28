@@ -1,99 +1,24 @@
-import React, { useState } from "react";
-import "../../../styles/reset.scss";
-import "./Main.scss";
-import "../../../styles/taeyoon/nav.scss";
-import "../../../styles/taeyoon/user.scss";
-import "./Feed";
-import Feed from "./Feed";
+import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import { far } from "@fortawesome/free-regular-svg-icons";
 import { fas } from "@fortawesome/free-solid-svg-icons";
+import Feed from "./Feed";
+import Recommend from "../../../components/taeyoon/Recommend";
+import Story from "../../../components/taeyoon/Story";
+import Nav from "../../../components/taeyoon/Nav";
+import "../../../styles/reset.scss";
+import "./Main.scss";
+import "../../../styles/taeyoon/nav.scss";
+import "../../../styles/taeyoon/user.scss";
 library.add(fab, far, fas);
 
 const Main = () => {
   return (
     <>
       {/* 네비게이션 바 */}
-      <nav className="nav">
-        <div className="nav__container">
-          <div className="nav__left">
-            <a className="nav__left--icon" href="#">
-              <FontAwesomeIcon
-                className="fontAwesome"
-                icon="fa-brands fa-instagram"
-                size="2x"
-              />
-            </a>
-            <a className="nav__left--logo" href="#">
-              Westagram
-            </a>
-          </div>
-          <div className="nav__search">
-            <input type="text" placeholder="🔍검색1" />
-          </div>
-
-          <div className="nav__right">
-            <a href="#">
-              <FontAwesomeIcon
-                className="fontAwesome"
-                icon="fa-regular fa-compass"
-                size="2x"
-              />
-            </a>
-            <a href="#">
-              <FontAwesomeIcon
-                className="fontAwesome"
-                icon="fa-regular fa-heart"
-                size="2x"
-              />
-            </a>
-            <a href="#">
-              <FontAwesomeIcon
-                className="fontAwesome"
-                icon="fa-regular fa-user"
-                size="2x"
-              />
-            </a>
-            {/* 프로필 정보 */}
-            <div className="nav__popup">
-              <div className="speech-bubble">
-                <div className="speech-box">
-                  <FontAwesomeIcon
-                    className="fontAwesome"
-                    icon="fa-regular fa-id-badge"
-                    size="lg"
-                  />
-                  <span>프로필</span>
-                </div>
-
-                <div className="speech-box">
-                  <FontAwesomeIcon
-                    className="fontAwesome"
-                    icon="fa-regular fa-bookmark"
-                    size="lg"
-                  />
-                  <span>저장됨</span>
-                </div>
-
-                <div className="speech-box">
-                  <FontAwesomeIcon
-                    className="fontAwesome"
-                    icon="fa-solid fa-gear"
-                    size="lg"
-                  />
-                  <span>설정</span>
-                </div>
-
-                <div className="speech-box logout">
-                  <span>로그아웃</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <Nav />
       {/* 메인화면 */}
       <main className="main">
         {/* 메인 왼쪽 피드 */}
@@ -129,94 +54,19 @@ const Main = () => {
             </div>
             <div className="story__list">
               {/* 스토리 1 */}
-              <div className="user__container">
-                <div className="user__left">
-                  <div className="user__img">
-                    <img
-                      className="profile_img"
-                      src="/images/taeyoon/profile.jpg"
-                      alt="프사"
-                      width="32px"
-                    />
-                  </div>
-                  <div className="user__info">
-                    <div className="user__info--name">name1</div>
-                    <div className="user__info--text">1분전</div>
-                  </div>
-                </div>
-              </div>
+              <Story name="name1" time="1분전" />
 
               {/* 스토리 2 */}
-              <div className="user__container">
-                <div className="user__left">
-                  <div className="user__img">
-                    <img
-                      className="profile_img"
-                      src="/images/taeyoon/profile.jpg"
-                      alt="프사"
-                      width="32px"
-                    />
-                  </div>
-                  <div className="user__info">
-                    <div className="user__info--name">name2</div>
-                    <div className="user__info--text">2분전</div>
-                  </div>
-                </div>
-              </div>
+              <Story name="name2" time="2분전" />
 
               {/* 스토리 3 */}
-              <div className="user__container">
-                <div className="user__left">
-                  <div className="user__img">
-                    <img
-                      className="profile_img"
-                      src="/images/taeyoon/profile.jpg"
-                      alt="프사"
-                      width="32px"
-                    />
-                  </div>
-                  <div className="user__info">
-                    <div className="user__info--name">name3</div>
-                    <div className="user__info--text">3분전</div>
-                  </div>
-                </div>
-              </div>
+              <Story name="name3" time="3분전" />
 
               {/* 스토리 4 */}
-              <div className="user__container">
-                <div className="user__left">
-                  <div className="user__img">
-                    <img
-                      className="profile_img"
-                      src="/images/taeyoon/profile.jpg"
-                      alt="프사"
-                      width="32px"
-                    />
-                  </div>
-                  <div className="user__info">
-                    <div className="user__info--name">name4</div>
-                    <div className="user__info--text">4분전</div>
-                  </div>
-                </div>
-              </div>
+              <Story name="name4" time="4분전" />
 
               {/* 스토리 5 */}
-              <div className="user__container">
-                <div className="user__left">
-                  <div className="user__img">
-                    <img
-                      className="profile_img"
-                      src="/images/taeyoon/profile.jpg"
-                      alt="프사"
-                      width="32px"
-                    />
-                  </div>
-                  <div className="user__info">
-                    <div className="user__info--name">name5</div>
-                    <div className="user__info--text">text5</div>
-                  </div>
-                </div>
-              </div>
+              <Story name="name5" time="5분전" />
             </div>
           </div>
 
@@ -231,69 +81,13 @@ const Main = () => {
 
             <div className="recommend__list">
               {/* 추천1 */}
-              <div className="user__container">
-                <div className="user__left">
-                  <div className="user__img">
-                    <img
-                      className="profile_img"
-                      src="/images/taeyoon/profile.jpg"
-                      alt="프사"
-                      width="32px"
-                    />
-                  </div>
-                  <div className="user__info">
-                    <div className="user__info--name">wecode_bootcamp</div>
-                    <div className="user__info--text">Wecode | 위코드</div>
-                  </div>
-                </div>
-                <div className="user__right">
-                  <a href="#">팔로우</a>
-                </div>
-              </div>
+              <Recommend />
 
               {/* 추천2 */}
-              <div className="user__container">
-                <div className="user__left">
-                  <div className="user__img">
-                    <img
-                      className="profile_img"
-                      src="/images/taeyoon/profile.jpg"
-                      alt="프사"
-                      width="32px"
-                    />
-                  </div>
-                  <div className="user__info">
-                    <div className="user__info--name">wecode_bootcamp</div>
-                    <div className="user__info--text">Wecode | 위코드</div>
-                  </div>
-                </div>
-
-                <div className="user__right">
-                  <a href="#">팔로우</a>
-                </div>
-              </div>
+              <Recommend />
 
               {/* 추천3 */}
-              <div className="user__container">
-                <div className="user__left">
-                  <div className="user__img">
-                    <img
-                      className="profile_img"
-                      src="/images/taeyoon/profile.jpg"
-                      alt="프사"
-                      width="32px"
-                    />
-                  </div>
-                  <div className="user__info">
-                    <div className="user__info--name">wecode_bootcamp</div>
-                    <div className="user__info--text">Wecode | 위코드</div>
-                  </div>
-                </div>
-
-                <div className="user__right">
-                  <a href="#">팔로우</a>
-                </div>
-              </div>
+              <Recommend />
             </div>
           </div>
 

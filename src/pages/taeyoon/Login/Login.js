@@ -1,12 +1,10 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../../../styles/reset.scss";
 import "./Login.scss";
-import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
   const navigate = useNavigate();
-  // let [inputIdValue, inputIdFunc] = useState("");
-  // let [inputPwValue, inputPwFunc] = useState("");
   const [inputValues, setInput] = useState({
     id: "",
     pw: "",
@@ -17,17 +15,14 @@ const LoginForm = () => {
   const isPw = pw.length >= 5;
   const isIdPw = isId && isPw;
   const isdisabled = isIdPw ? false : true;
-  // console.log("1", inputValues);
 
   const checkInput = e => {
-    // console.log("2", inputValues);
     const { name, value } = e.target;
 
     setInput({
       ...inputValues, //[id, pw]
       [name]: value,
     });
-    // console.log("3", inputValues);
   };
 
   return (
