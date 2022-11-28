@@ -1,0 +1,198 @@
+* {
+  box-sizing: border-box;
+}
+
+@mixin flex($justify-content) {
+  display: flex;
+  justify-content: $justify-content;
+  align-items: center;
+}
+
+@mixin width($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+.nav {
+  position: fixed;
+  /* fixed는 영역을 차지하지 않아서 위와 옆 빈 영역을 0으로 해준다 */
+  top: 0;
+  left: 0;
+  right: 0;
+  @include width(100%, 60px);
+  background-color: white;
+  border-bottom: 1px solid rgb(190, 190, 190);
+
+  .navMain {
+    @include width(970px, 60px);
+    margin: auto;
+    @include flex(space-between);
+  }
+
+  .navMainImg {
+    @include width(335px, 60px);
+    @include flex(space-around);
+  }
+
+  .navImg {
+    @include width(24px, 24px);
+  }
+
+  .navLogo {
+    font-size: 30px;
+    font-family: "Lobster", cursive;
+    padding-left: 50px;
+    border-left: 1px solid rgb(190, 190, 190);
+  }
+
+  .navSearch {
+    @include width(268px, 36px);
+    text-align: center;
+    background-color: rgb(242, 241, 241);
+    border: 1px solid rgb(190, 190, 190);
+    border-radius: 5px;
+  }
+
+  .navIcon {
+    @include width(25px, 25px);
+    margin-left: 25px;
+  }
+}
+
+/* ------------------------------------  Nav ------------------------------------------- */
+/* ------------------------------------  Nav ------------------------------------------- */
+/* ------------------------------------  Nav ------------------------------------------- */
+/* ------------------------------------  Nav ------------------------------------------- */
+/* ------------------------------------  Nav ------------------------------------------- */
+
+.main {
+  margin-top: 100px;
+
+  .article {
+    width: 472px;
+    border: 1px solid rgb(190, 190, 190);
+    border-radius: 5px;
+    margin: auto;
+    /* margin-top: 100px; */
+
+    .artHeader {
+      height: 56px;
+      @include flex(space-between);
+      padding: 0px 15px 0px 15px;
+
+      .artHeaderProfile {
+        display: flex;
+        align-items: center;
+      }
+
+      .artHeaderImg {
+        margin-right: 10px;
+        @include width(32px, 32px);
+        border-radius: 70%;
+      }
+
+      .artHeaderId {
+        font-weight: bold;
+      }
+
+      .artHeaderIcon {
+        @include width(20px, 20px);
+      }
+    }
+
+    .artMainImg {
+      width: 470px;
+    }
+
+    .artFooter {
+      .artFooterIcons {
+        @include width(470px, 35px);
+        @include flex(space-between);
+        margin-bottom: 3px;
+
+        .artFooterIcon {
+          width: 24px;
+          margin: 0px 10px 0px 10px;
+        }
+      }
+
+      .artFooterGood {
+        display: flex;
+        align-items: center;
+
+        .artFooterGoodImg {
+          @include width(25px, 25px);
+          border-radius: 70%;
+          margin: 0px 8px;
+        }
+      }
+
+      .artFooterPost {
+        padding: 3px 0px 0px 8px;
+      }
+
+      .artFooterComment {
+        margin: 0px;
+        padding-left: 8px;
+
+        .artFooterCommentId {
+          list-style: none;
+          display: flex;
+          justify-content: space-between;
+        }
+
+        .artFooterCommentIcoon {
+          @include width(15px, 15px);
+          margin-right: 12px;
+        }
+      }
+
+      .artFooterCommentTime {
+        padding-left: 8px;
+        color: gray;
+      }
+
+      .artFooterCommentButton {
+        border-top: 1px solid rgb(190, 190, 190);
+        display: flex;
+        align-items: center;
+
+        .artFooterCommentText {
+          @include width(85%, 30px);
+          border: 0px;
+          padding-left: 8px;
+          border-radius: 5px;
+        }
+
+        .artfooterCommentBtn1 {
+          @include width(15%, 30px);
+          color: #47afff;
+          background-color: white;
+          border: 0px;
+          border-radius: 5px;
+        }
+
+        .artfooterCommentBtn2 {
+          @include width(15%, 30px);
+          color: #1a99fa;
+          background-color: white;
+          border: 0px;
+          border-radius: 5px;
+        }
+      }
+    }
+  }
+}
+
+/* ------------------------------------  artHeader ------------------------------------------- */
+/* ------------------------------------  artHeader ------------------------------------------- */
+/* ------------------------------------  artHeader ------------------------------------------- */
+
+/* ------------------------------------  artMain ------------------------------------------- */
+/* ------------------------------------  artMain ------------------------------------------- */
+/* ------------------------------------  artMain ------------------------------------------- */
+
+/* ------------------------------------  FooterPost ------------------------------------------- */
+/* ------------------------------------  FooterPost ------------------------------------------- */
+
+/* ul태그로 댓글 리스트를 줬는데 알수없는 margin이 생긴다. ul 태그에 margin 0px을 사라졌다 */

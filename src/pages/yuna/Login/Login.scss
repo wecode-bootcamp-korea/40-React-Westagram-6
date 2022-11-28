@@ -1,0 +1,74 @@
+* {
+  box-sizing: border-box;
+}
+
+$color: #00376b;
+
+@mixin flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@mixin radius($radius) {
+  border-radius: $radius;
+}
+
+@mixin width($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+// ---------------------------------------------------------------------
+
+.loginMain {
+  @include width(350px, 430px);
+  border: 2px solid rgb(220, 219, 219);
+  @include radius(5px);
+  margin: auto;
+  @include flex;
+
+  .loginLogo {
+    font-family: "Lobster", cursive;
+    font-size: 40px;
+    margin-bottom: 20px;
+  }
+
+  .loginWrap,
+  .passwordWrap {
+    @include width(268px, 35px);
+    margin-bottom: 15px;
+    padding-left: 10px;
+    border: 1px solid rgb(220, 219, 219);
+    @include radius(3px);
+  }
+
+  .loginBtn {
+    color: white;
+    @include width(268px, 30px);
+    background-color: #96caf1;
+    border: 0px;
+    @include radius(3px);
+    // &:hover {
+    //   background-color: rgb(53, 82, 229);
+    // }
+  }
+
+  .loginBtn2 {
+    color: white;
+    @include width(268px, 30px);
+    background-color: #2e9ff6;
+    border: 0px;
+    @include radius(3px);
+    // &:hover {
+    //   background-color: rgb(53, 82, 229);
+    // }
+  }
+
+  .pwLost {
+    font-size: 15px;
+    color: $color;
+    text-decoration: none;
+    margin-top: 80px;
+  }
+}
