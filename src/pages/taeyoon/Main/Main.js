@@ -50,7 +50,7 @@ const Main = () => {
         {/* 메인 오른쪽 목록 */}
         <div className="main__right">
           {/* 오른쪽 프로필 */}
-          <div className="main__right--profile">
+          <section className="main__right--profile">
             <div className="user__container" id="user__main">
               <div className="user__left">
                 <div className="user__img">
@@ -67,10 +67,10 @@ const Main = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </section>
 
           {/* 오른쪽 스토리 */}
-          <div className="main__right--story">
+          <section className="main__right--story">
             <div className="story__header">
               <span className="story__header--left">스토리</span>
               <span className="story__header--right">모두 보기</span>
@@ -91,10 +91,10 @@ const Main = () => {
               {/* 스토리 5 */}
               <Story name="name5" time="5분전" />
             </ul>
-          </div>
+          </section>
 
           {/* 오른쪽 추천리스트 */}
-          <div className="main__right--recommend">
+          <section className="main__right--recommend">
             <div className="recommend__header">
               <span className="recommend__header--left">
                 회원님을 위한 추천
@@ -112,7 +112,7 @@ const Main = () => {
               {/* 추천3 */}
               <Recommend />
             </ul>
-          </div>
+          </section>
 
           {/* 오른쪽 푸터 */}
           <Footer />

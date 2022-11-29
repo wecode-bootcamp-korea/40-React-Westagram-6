@@ -128,7 +128,7 @@ a {
 /* 메인 오른쪽 */
 .main__right {
   width: 347px;
-  & > div {
+  & > section {
     margin-bottom: 15px;
 
     &:first-child {
@@ -287,5 +287,14 @@ a {
   }
   .main__left {
     margin: 0;
+  }
+  .feed {
+    margin: 20px auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .nav__search input {
+    display: none;
   }
 }

@@ -14,7 +14,7 @@ const Recommend = () => {
           />
         </div>
         <div className="user__info">
-          <div className="user__info--name">wecode_bootcamp</div>
+          <strong className="user__info--name">wecode_bootcamp</strong>
           <div className="user__info--text">Wecode | 위코드</div>
         </div>
       </div>

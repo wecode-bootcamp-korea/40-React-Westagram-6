@@ -14,7 +14,7 @@ const Story = props => {
           />
         </div>
         <div className="user__info">
-          <div className="user__info--name">{name}</div>
+          <strong className="user__info--name">{name}</strong>
           <div className="user__info--text">{time}</div>
         </div>
       </div>

@@ -31,7 +31,7 @@ const Feed = props => {
   return (
     <article className="feed">
       {/* 피드 헤더 */}
-      <div className="feed__header">
+      <section className="feed__header">
         <div className="feed__header--profile">
           <img
             className="profile_img"
@@ -47,15 +47,15 @@ const Feed = props => {
             icon="fa-solid fa-ellipsis"
           />
         </div>
-      </div>
+      </section>
 
       {/* 피드 이미지 */}
-      <div className="feed__img">
+      <section className="feed__img">
         <img src={props.image} alt="이미지" width="470px" />
-      </div>
+      </section>
 
       {/* 피드 아이콘 */}
-      <div className="feed__icon">
+      <section className="feed__icon">
         <div className="feed__icon--left">
           <FontAwesomeIcon
             className="icon__left fontAwesome"
@@ -80,10 +80,10 @@ const Feed = props => {
             size="lg"
           />
         </div>
-      </div>
+      </section>
 
       {/* 피드 좋아요 */}
-      <div className="feed__like">
+      <section className="feed__like">
         <div className="feed__like--img">
           <img
             className="profile_img"
@@ -95,23 +95,23 @@ const Feed = props => {
         <div className="feed__like--text">
           ㅇㅇㅇ님 외 {props.likes}명이 좋아합니다
         </div>
-      </div>
+      </section>
 
       {/* 피드 댓글 */}
-      <div className="feed__comment">
+      <section className="feed__comment">
         <ul className="feed__comment--list">
           {/* 댓글 리스트 */}
           {commentList.map((el, i) => {
             return <Comment key={i} userName="작성자" comment={el} />;
           })}
         </ul>
-      </div>
+      </section>
 
       {/* 피드 작성시간 */}
-      <div className="feed__time">{props.time}시간전</div>
+      <section className="feed__time">{props.time}시간전</section>
 
       {/* 피드 댓글작성 */}
-      <div className="feed__input" onSubmit={onSubmit}>
+      <section className="feed__input" onSubmit={onSubmit}>
         <form className="feed\__input--form">
           <input
             onChange={onChange}
@@ -121,7 +121,7 @@ const Feed = props => {
           />
           <button type="submit">게시</button>
         </form>
-      </div>
+      </section>
     </article>
   );
 };
