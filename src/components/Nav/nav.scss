@@ -60,7 +60,7 @@ body {
     display: none;
   }
 
-  input {
+  & input {
     width: 100px;
     height: 30px;
     border: $border_style;
