@@ -1,0 +1,291 @@
+@import "../../../styles/taeyoon/mixin.scss";
+@import "../../../styles/taeyoon/variables.scss";
+
+// a태그 리셋
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* 메인 왼쪽 */
+.main {
+  margin: 50px 80px;
+  display: flex;
+  justify-content: center;
+}
+
+/* 피드 */
+.feed {
+  border: $border_style;
+  background-color: $white;
+  margin-bottom: 30px;
+  width: 470px;
+  border-radius: 5px;
+  margin-right: 32px;
+}
+
+/* 피드 헤더 */
+.feed__header {
+  @include flex(space-between, center);
+  height: 58px;
+  padding: 0 10px;
+
+  &--profile {
+    display: flex;
+    align-items: center;
+
+    & img {
+      margin-right: 10px;
+    }
+  }
+}
+
+/* 이미지 임시 */
+.feed__img {
+  width: 470px;
+  height: 470px;
+}
+
+/* 피드 아이콘 */
+.feed__icon {
+  @include flex(space-between, center);
+  height: 46px;
+  margin: 0 10px;
+
+  .icon__left,
+  .icon__right {
+    margin-right: 10px;
+  }
+}
+
+/* 피드 좋아요 */
+.feed__like {
+  height: 30px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+
+  &--img {
+    margin-right: 10px;
+  }
+}
+
+/* 피드 댓글 */
+.feed__comment {
+  margin: 10px;
+  max-height: 100px;
+  overflow-y: scroll;
+
+  /* 피드 댓글 리스트 */
+  &--list li span:first-child {
+    font-weight: 600;
+    margin-right: 6px;
+  }
+
+  & li {
+    @include flex(space-between, center);
+  }
+}
+
+/* 피드 작성시간 */
+.feed__time {
+  margin: 10px;
+  height: 24px;
+  color: $black_04;
+}
+
+/* 피드 인풋 */
+.feed__input {
+  height: 49px;
+  position: relative;
+
+  & input {
+    box-sizing: border-box;
+    height: 49px;
+    width: 470px;
+    padding-left: 10px;
+    border: none;
+    border-top: $border_style;
+
+    &:focus {
+      outline: 1px solid rgba(230, 230, 230, 0.9);
+    }
+  }
+
+  & button {
+    position: absolute;
+    right: 0;
+    height: 100%;
+    width: 10%;
+    background-color: transparent;
+    border: none;
+    color: #5aa7f2;
+    font-weight: 700;
+    font-size: 14px;
+  }
+}
+
+/* 메인 오른쪽 */
+.main__right {
+  width: 347px;
+  & > div {
+    margin-bottom: 15px;
+
+    &:first-child {
+      margin-bottom: 6px;
+    }
+  }
+}
+
+/* 프로필 */
+.main__right--profile {
+  height: 56px;
+  & img {
+    border-radius: 50%;
+  }
+}
+
+/* 스토리 */
+.main__right--story {
+  border: $border_style;
+  border-radius: 5px;
+  height: 240px;
+  padding: 10px 0;
+  background-color: white;
+  overflow: auto;
+}
+
+.story__header {
+  @include flex(space-between, center);
+  height: 19px;
+  padding: 5px 12px;
+
+  &--left {
+    color: $black_04;
+  }
+}
+
+.story__list img {
+  border: 1px solid transparent;
+  border-radius: 50%;
+  background-image: linear-gradient(#fff, #fff),
+    linear-gradient(to right, red 0%, orange 100%);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  padding: 1px;
+}
+
+/* 추천 */
+.main__right--recommend {
+  border: $border_style;
+  background-color: $white;
+  border-radius: 5px;
+  height: 180px;
+  padding: 10px 0;
+}
+
+/* 추천 헤더 */
+.recommend__header {
+  @include flex(space-between, center);
+  height: 19px;
+  padding: 5px 12px;
+
+  &--left {
+    color: $black_04;
+  }
+}
+
+/* 푸터 */
+.main__right--footer {
+  height: 75px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+  color: $black_02;
+  font-size: 17px;
+  font-weight: 600;
+
+  & li {
+    float: left;
+    margin-left: 6px;
+  }
+
+  & span {
+    margin-top: 20px;
+  }
+}
+
+/* 말풍선 */
+
+.speech-bubble {
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+  position: relative;
+  border-radius: 0.7em;
+  width: 330px;
+  background-color: $white;
+}
+
+.speech-box {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.speech-box i {
+  margin-right: 14px;
+}
+
+.speech-bubble .logout {
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.speech-bubble:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 80%;
+  width: 0;
+  height: 0;
+  border: 15px solid transparent;
+  border-bottom-color: $white;
+  border-top: 0;
+  margin-left: -15px;
+  margin-top: -15px;
+}
+
+.icon__red {
+  color: red;
+}
+
+.fontAwesome:hover {
+  transition: 0.3s;
+  animation-name: BlowUp;
+  animation-duration: 0.4s;
+}
+
+/* 애니메이션 */
+@keyframes BlowUp {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.2, 1.2);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+/* 반응형 */
+
+@media (max-width: 870px) {
+  .main__right {
+    display: none;
+  }
+  .main__left {
+    margin: 0;
+  }
+}
