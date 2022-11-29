@@ -1,16 +1,32 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 // import { Link } from "react-router-dom";
 import Feed from "./Feed";
 import Recommend from "../../../components/taeyoon/Recommend";
 import Story from "../../../components/taeyoon/Story";
-import Nav from "../../../components/taeyoon/Nav";
+import Nav from "../../../components/Nav/Nav";
 import Footer from "../../../components/taeyoon/Footer";
 import "../../../styles/reset.scss";
 import "./Main.scss";
-import "../../../styles/taeyoon/nav.scss";
+import "../../../components/Nav/nav.scss";
 import "../../../styles/taeyoon/user.scss";
 
 const Main = () => {
+  // 목업데이터
+  const [userList, setUserList] = useState([]);
+
+  useEffect(() => {
+    fetch("/data/userData.json", {
+      method: "GET",
+    })
+      .then(res => res.json())
+      .then(data => {
+        setUserList(data);
+        // setLoading(false);
+      });
+  }, []);
+  // 로딩중...
+  // const [loading, setLoading] = useState(true);
+  // if (loading) return <>Loading....</>;
   return (
     <>
       {/* 네비게이션 바 */}
@@ -18,8 +34,19 @@ const Main = () => {
       {/* 메인화면 */}
       <main className="main">
         {/* 메인 왼쪽 피드 */}
-        <Feed />
-
+        <div className="main__left">
+          {userList.map((el, i) => {
+            return (
+              <Feed
+                key={userList[i].id}
+                time={userList[i].time}
+                name={userList[i].username}
+                likes={userList[i].likes}
+                image={userList[i].image}
+              />
+            );
+          })}
+        </div>
         {/* 메인 오른쪽 목록 */}
         <div className="main__right">
           {/* 오른쪽 프로필 */}
