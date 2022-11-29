@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Recommend = () => {
   return (
-    <div className="user__container">
+    <li className="user__container">
       <div className="user__left">
         <div className="user__img">
           <img
@@ -21,7 +21,7 @@ const Recommend = () => {
       <div className="user__right">
         <Link to="#">팔로우</Link>
       </div>
-    </div>
+    </li>
   );
 };
 

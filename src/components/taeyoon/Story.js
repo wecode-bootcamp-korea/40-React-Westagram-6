@@ -3,7 +3,7 @@ import React from "react";
 const Story = props => {
   const { name, time } = props;
   return (
-    <div className="user__container">
+    <li className="user__container">
       <div className="user__left">
         <div className="user__img">
           <img
@@ -18,7 +18,7 @@ const Story = props => {
           <div className="user__info--text">{time}</div>
         </div>
       </div>
-    </div>
+    </li>
   );
 };
 

@@ -4,11 +4,11 @@ import Feed from "./Feed";
 import Recommend from "../../../components/taeyoon/Recommend";
 import Story from "../../../components/taeyoon/Story";
 import Nav from "../../../components/taeyoon/Nav";
+import Footer from "../../../components/taeyoon/Footer";
 import "../../../styles/reset.scss";
 import "./Main.scss";
 import "../../../styles/taeyoon/nav.scss";
 import "../../../styles/taeyoon/user.scss";
-import Footer from "../../../components/taeyoon/Footer";
 
 const Main = () => {
   return (
@@ -48,7 +48,7 @@ const Main = () => {
               <span className="story__header--left">스토리</span>
               <span className="story__header--right">모두 보기</span>
             </div>
-            <div className="story__list">
+            <ul className="story__list">
               {/* 스토리 1 */}
               <Story name="name1" time="1분전" />
 
@@ -63,7 +63,7 @@ const Main = () => {
 
               {/* 스토리 5 */}
               <Story name="name5" time="5분전" />
-            </div>
+            </ul>
           </div>
 
           {/* 오른쪽 추천리스트 */}
@@ -75,7 +75,7 @@ const Main = () => {
               <span className="recommend__header--right">모두보기</span>
             </div>
 
-            <div className="recommend__list">
+            <ul className="recommend__list">
               {/* 추천1 */}
               <Recommend />
 
@@ -84,7 +84,7 @@ const Main = () => {
 
               {/* 추천3 */}
               <Recommend />
-            </div>
+            </ul>
           </div>
 
           {/* 오른쪽 푸터 */}

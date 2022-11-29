@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import footerData from "./footerData";
+import FOOTER_DATA from "./footerData";
 
 const Footer = () => {
   return (
     <div className="main__right--footer">
       <ul className="footer__list">
-        {footerData.map(el => {
+        {FOOTER_DATA.map(el => {
           return (
             <li key={el.id}>
               <Link to={el.url}>{el.content}</Link>

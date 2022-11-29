@@ -1,4 +1,4 @@
-const footerData = [
+const FOOTER_DATA = [
   { id: 1, content: "Instagram 정보 ·", url: "/help" },
   { id: 2, content: "지원 ·", url: "/help" },
   { id: 3, content: "홍보 센터 ·", url: "/promotion" },
@@ -12,4 +12,4 @@ const footerData = [
   { id: 11, content: "언어", url: "/language" },
 ];
 
-export default footerData;
+export default FOOTER_DATA;
