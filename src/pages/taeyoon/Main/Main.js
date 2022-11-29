@@ -3,11 +3,11 @@ import React from "react";
 import Feed from "./Feed";
 import Recommend from "../../../components/taeyoon/Recommend";
 import Story from "../../../components/taeyoon/Story";
-import Nav from "../../../components/taeyoon/Nav";
+import Nav from "../../../components/Nav/Nav";
 import Footer from "../../../components/taeyoon/Footer";
 import "../../../styles/reset.scss";
 import "./Main.scss";
-import "../../../styles/taeyoon/nav.scss";
+import "../../../components/Nav/nav.scss";
 import "../../../styles/taeyoon/user.scss";
 
 const Main = () => {

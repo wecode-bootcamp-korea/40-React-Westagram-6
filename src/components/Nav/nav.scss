@@ -1,0 +1,84 @@
+@import "../../styles/taeyoon/mixin.scss";
+@import "../../styles/taeyoon/variables.scss";
+
+body {
+  background-color: $background_color;
+  height: 1400px;
+  margin-top: 100px;
+}
+
+.nav__container {
+  @include flex(space-between, center);
+  border-bottom: $border_style;
+  padding: 20px 10vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: $white;
+
+  /* 네비 왼쪽 */
+  .nav__left {
+    display: flex;
+    align-items: center;
+
+    &--icon {
+      color: inherit;
+      margin-right: 10px;
+      padding-right: 16px;
+      border-right: 2px solid rgba(0, 0, 0, 0.6);
+    }
+
+    &--logo {
+      font-family: $insta_font;
+      font-size: 20px;
+      text-decoration: none;
+      color: inherit;
+    }
+  }
+
+  /* 네비 오른쪽 */
+  .nav__right {
+    position: relative;
+
+    & a {
+      margin-left: 15px;
+    }
+
+    /* 프로필 팝업 */
+    .speech-bubble {
+      position: absolute;
+      top: 55px;
+      right: -52px;
+      display: none;
+    }
+  }
+}
+
+.nav__search {
+  & span {
+    display: none;
+  }
+
+  input {
+    width: 100px;
+    height: 30px;
+    border: $border_style;
+    border-radius: 5px;
+    transition: 0.3s ease-in-out;
+
+    &::placeholder {
+      text-align: center;
+      transition: 0.2s ease-in-out;
+    }
+
+    &:focus {
+      outline: none;
+      width: 250px;
+    }
+
+    &:focus::placeholder {
+      color: transparent;
+    }
+  }
+}

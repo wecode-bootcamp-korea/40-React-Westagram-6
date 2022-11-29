@@ -5,7 +5,7 @@ import { fab } from "@fortawesome/free-brands-svg-icons";
 import { far } from "@fortawesome/free-regular-svg-icons";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import "./Main.scss";
-import "../../../styles/taeyoon/nav.scss";
+import "../../../components/Nav/nav.scss";
 import "../../../styles/taeyoon/user.scss";
 import Comment from "./Comment";
 library.add(fab, far, fas);
