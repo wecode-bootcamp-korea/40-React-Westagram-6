@@ -25,10 +25,11 @@ $color: #00376b;
   @include width(350px, 430px);
   border: 2px solid rgb(220, 219, 219);
   @include radius(5px);
-  margin: auto;
+  margin: 20px auto auto auto;
   @include flex;
 
   .loginLogo {
+    margin-top: 10px;
     font-family: "Lobster", cursive;
     font-size: 40px;
     margin-bottom: 20px;

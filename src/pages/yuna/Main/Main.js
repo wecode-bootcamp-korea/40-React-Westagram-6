@@ -1,8 +1,34 @@
 import React, { useState } from "react";
-import "../Main/Main.scss";
 import { Link } from "react-router-dom";
+import CommentList from "./CommentList";
+import "../Main/Main.scss";
 
 const Main = () => {
+  let [userName] = useState("y_na__y");
+  let [comment, setComment] = useState("");
+  let [feedComments, setFeedComments] = useState([]);
+  let [isValid, setIsValid] = useState(false);
+
+  let post = e => {
+    const copyFeedComments = [...feedComments];
+    copyFeedComments.push(comment);
+    setFeedComments(copyFeedComments);
+    setComment("");
+  };
+
+  const handleOnClick = e => {
+    const copyFeedComments = [...feedComments];
+    copyFeedComments.push(comment);
+    setFeedComments(copyFeedComments);
+    setComment("");
+  };
+
+  const handleOnKeyPress = e => {
+    if (e.key === "Enter") {
+      handleOnClick();
+    }
+  };
+
   return (
     <div>
       <div className="nav">
@@ -96,20 +122,21 @@ const Main = () => {
                 alt="위코드이미지"
               />
               <span>
-                <b>Wecode</b>님 <b>외 38,499명</b>이 좋아합니다
+                <span className="artFooterPostId">Wecode</span>님{" "}
+                <span className="artFooterPostId">외 38,499명</span>이
+                좋아합니다
               </span>
             </div>
             <div className="artFooterPost">
-              <span className="artFooterPostId">
-                <b>long_yuna_</b>
-              </span>
+              <span className="artFooterPostId">long_yuna_</span>
               <span className="artFooterPostMyPost">무계획 오히려 좋아💙</span>
             </div>
 
             <ul className="artFooterComment">
               <li className="artFooterCommentId">
                 <span>
-                  <b>i_am_beetna</b> 뭐야?! 나는!!
+                  <span className="artFooterPostId">i_am_beetna</span> 뭐야?!
+                  나는!!
                 </span>
                 <img
                   className="artFooterCommentIcoon"
@@ -118,14 +145,46 @@ const Main = () => {
                 />
               </li>
             </ul>
+
             <span className="artFooterCommentTime">55분 전</span>
+
+            {feedComments.map((commentArr, i) => {
+              return (
+                <CommentList
+                  userName={userName}
+                  userComment={commentArr}
+                  key={i}
+                />
+              );
+            })}
+
             <div className="artFooterCommentButton">
               <input
                 className="artFooterCommentText"
                 type="text"
                 placeholder="댓글달기..."
+                onChange={e => {
+                  setComment(e.target.value);
+                }}
+                onKeyUp={e => {
+                  e.target.value.length > 0
+                    ? setIsValid(true)
+                    : setIsValid(false);
+                }}
+                value={comment}
+                onKeyPress={handleOnKeyPress}
               />
-              <button className="artfooterCommentBtn1">게시</button>
+              <button
+                className={
+                  comment.length > 0
+                    ? "artfooterCommentBtn2"
+                    : "artfooterCommentBtn1"
+                }
+                onClick={post}
+                disabled={isValid ? false : true}
+              >
+                게시
+              </button>
             </div>
           </div>
         </div>

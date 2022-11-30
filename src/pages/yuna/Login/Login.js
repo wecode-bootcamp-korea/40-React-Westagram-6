@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 //useState 선언
-import "../Login/Login.scss";
 import { Link } from "react-router-dom";
+import "../Login/Login.scss";
 
 const Login = () => {
   const [id, setId] = useState("");

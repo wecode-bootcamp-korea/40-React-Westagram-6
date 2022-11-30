@@ -131,6 +131,10 @@
         padding: 3px 0px 0px 8px;
       }
 
+      .artFooterPostId {
+        font-weight: bold;
+      }
+
       .artFooterComment {
         margin: 0px;
         padding-left: 8px;
@@ -166,7 +170,7 @@
 
         .artfooterCommentBtn1 {
           @include width(15%, 30px);
-          color: #47afff;
+          color: #6abdfc;
           background-color: white;
           border: 0px;
           border-radius: 5px;
@@ -178,6 +182,10 @@
           background-color: white;
           border: 0px;
           border-radius: 5px;
+        }
+
+        .userCommentBox {
+          background-color: #1a99fa;
         }
       }
     }
