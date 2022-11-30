@@ -34,7 +34,7 @@ const Main = () => {
       {/* 메인화면 */}
       <main className="main">
         {/* 메인 왼쪽 피드 */}
-        <div className="main__left">
+        <section className="main__left">
           {userList.map((el, i) => {
             return (
               <Feed
@@ -46,11 +46,11 @@ const Main = () => {
               />
             );
           })}
-        </div>
+        </section>
         {/* 메인 오른쪽 목록 */}
-        <div className="main__right">
+        <aside className="main__right">
           {/* 오른쪽 프로필 */}
-          <section className="main__right--profile">
+          <article className="main__right--profile">
             <div className="user__container" id="user__main">
               <div className="user__left">
                 <div className="user__img">
@@ -67,13 +67,13 @@ const Main = () => {
                 </div>
               </div>
             </div>
-          </section>
+          </article>
 
           {/* 오른쪽 스토리 */}
-          <section className="main__right--story">
+          <article className="main__right--story">
             <div className="story__header">
               <span className="story__header--left">스토리</span>
-              <span className="story__header--right">모두 보기</span>
+              <strong className="story__header--right">모두 보기</strong>
             </div>
             <ul className="story__list">
               {/* 스토리 1 */}
@@ -91,15 +91,15 @@ const Main = () => {
               {/* 스토리 5 */}
               <Story name="name5" time="5분전" />
             </ul>
-          </section>
+          </article>
 
           {/* 오른쪽 추천리스트 */}
-          <section className="main__right--recommend">
+          <article className="main__right--recommend">
             <div className="recommend__header">
               <span className="recommend__header--left">
                 회원님을 위한 추천
               </span>
-              <span className="recommend__header--right">모두보기</span>
+              <strong className="recommend__header--right">모두보기</strong>
             </div>
 
             <ul className="recommend__list">
@@ -112,11 +112,11 @@ const Main = () => {
               {/* 추천3 */}
               <Recommend />
             </ul>
-          </section>
+          </article>
 
           {/* 오른쪽 푸터 */}
           <Footer />
-        </div>
+        </aside>
       </main>
       {/* 검색창 */}
       {/* <div className="speech-bubble">

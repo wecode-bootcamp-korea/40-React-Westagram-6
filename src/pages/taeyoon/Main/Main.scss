@@ -128,9 +128,8 @@ a {
 /* 메인 오른쪽 */
 .main__right {
   width: 347px;
-  & > section {
+  & > article {
     margin-bottom: 15px;
-
     &:first-child {
       margin-bottom: 6px;
     }
@@ -234,7 +233,7 @@ a {
   font-weight: 600;
 }
 
-.speech-box i {
+.speech-box .fontAwesome{
   margin-right: 14px;
 }
 
