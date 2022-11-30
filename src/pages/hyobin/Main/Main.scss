@@ -2,32 +2,33 @@
 @import "../../../styles/common";
 @import "../../../styles/mixin";
 
-.profileTxt {
-  @include profileTxt;
+.txtBold {
+  font-weight: bold;
 }
 
 .navBar {
-  @include flex($direction: row, $align: center, $justify: space-between);
+  @include flex(row, space-between, center);
   margin: 15px 80px;
 
   .logo {
-    @include flex($direction: row, $align: center, $justify: center);
-  }
+    @include flex(row, center, center);
 
-  .img {
-    width: 24px;
-    height: 24px;
-    margin-right: 15px;
-    text-decoration-line: none;
-  }
+    .img {
+      width: 24px;
+      height: 24px;
+      margin-right: 15px;
 
-  .txt {
-    padding-left: 15px;
-    border-left: 2px solid rgb(77, 77, 77);
-    color: black;
-    font-family: "Lobster", cursive;
-    font-size: 30px;
-    text-decoration-line: none;
+      text-decoration-line: none;
+    }
+
+    .textLogo {
+      padding-left: 15px;
+      border-left: 2px solid rgb(55, 55, 55);
+      color: black;
+      font-family: "Lobster", cursive;
+      font-size: 30px;
+      text-decoration-line: none;
+    }
   }
 
   .searchBox {
@@ -44,40 +45,39 @@
   }
 
   .etc {
-    margin-right: 15px;
-    .items {
-      width: 24px;
-      height: 24px;
+    span {
+      margin-right: 15px;
+      img {
+        width: 24px;
+        height: 24px;
+      }
     }
   }
 }
 
 main {
-  @include flex($direction: row, $align: flex-start, $justify: center);
+  @include flex(row, center, flex-start);
   margin: 15px;
   border-top: 1px solid rgb(234, 234, 234);
   background-color: rgb(246, 246, 246);
 
   .feeds {
-    width: 450px;
     margin: 50px 20px auto;
     border: 1px solid rgb(234, 234, 234);
     border-radius: 3px;
     background-color: white;
 
-    .nav {
-      @include flex($direction: row, $align: center, $justify: space-between);
+    nav {
+      @include flex(row, space-between, center);
       .profile {
-        @include flex($direction: row, $align: center, $justify: space-between);
-      }
-      .mainProfile {
-        width: 25px;
-        height: 25px;
-        margin: 11px;
-        border: 0.3px solid rgb(234, 234, 234);
-        border-radius: 50%;
-        object-fit: cover;
-        object-position: bottom;
+        @include flex(row, space-between, center);
+        font-weight: bold;
+        img {
+          @include profileStyle;
+          width: 25px;
+          height: 25px;
+          margin: 11px;
+        }
       }
 
       .option {
@@ -85,232 +85,225 @@ main {
       }
     }
 
-    .feedImg {
-      margin: 0px;
-    }
-
     .feedEtc {
       border-bottom: 1px solid rgb(234, 234, 234);
+
+      .feedIcons {
+        @include flex(row, space-between, center);
+        .leftSide {
+          margin: 5px 5px;
+          img {
+            margin: 0px 5px;
+          }
+        }
+        .rightSide {
+          margin: 5px 5px;
+        }
+      }
     }
-
-    .feedEnd {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin: 10px;
-      padding: 10px 0px;
-    }
-
-    .feedIcons {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
-    }
-  }
-
-  .right {
-    margin-left: 10px;
-  }
-
-  .icons {
-    margin: 0px 3px;
-  }
-
-  .left {
-    margin: 5px 5px;
-  }
-
-  .right {
-    margin: 5px 5px;
-  }
-
-  .likeProfile {
-    width: 20px;
-    height: 20px;
-    margin-right: 5px;
-    border: 0.3px solid rgb(234, 234, 234);
-    border-radius: 50%;
-    object-fit: cover;
-    object-position: bottom;
-  }
-
-  .marginLeft {
-    margin: 0px 10px;
   }
 
   .likeMsg {
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-bottom: 5px;
+    margin: 0 10px 5px 10px;
+
+    img {
+      @include profileStyle;
+      width: 20px;
+      height: 20px;
+      margin-right: 5px;
+    }
+    .userId {
+      margin-right: 5px;
+      font-weight: bold;
+    }
   }
 
-  .dayBefore {
-    margin-bottom: 5px;
-  }
-
-  .userID {
-    font-weight: bold;
-  }
-
-  .dayBefore {
-    margin-bottom: 10px;
-  }
-  .comment {
+  .feedComment {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
-    margin-top: 0px;
-    margin-bottom: 0px;
+    margin: 0 10px 5px 10px;
+
+    :first-child {
+      margin-right: 5px;
+      font-weight: bold;
+    }
+    :last-child {
+      color: rgb(148, 148, 148);
+    }
   }
 
-  .commentStyle {
-    border: 0px;
+  .commentList {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-bottom: 5px;
+
+    li {
+      display: flex;
+      justify-content: space-between;
+      width: 430px;
+      margin: 0 10px 5px 10px;
+      div {
+        :first-child {
+          margin-right: 5px;
+          font-weight: bold;
+        }
+      }
+      form {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        img {
+          margin-right: 5px;
+        }
+      }
+    }
+
+    .dayStyle {
+      margin: 0 10px 5px 10px;
+      color: rgb(148, 148, 148);
+    }
   }
+}
+
+.newComment {
+  @include flex(center, space-between, row);
+  margin: 10px 5px;
+
   .post {
-    width: 25px;
     opacity: 0.5;
     background-color: white;
     color: rgb(0, 110, 253);
   }
 
-  .ulAlign {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+  .borderNone {
+    border-style: none;
   }
-
-  .listAlign {
-    display: flex;
-    justify-content: space-between;
-    width: 430px;
+  .comment {
+    width: 400px;
   }
+}
 
-  .side {
-    width: 225px;
-    margin-top: 50px;
-  }
+.side {
+  width: 225px;
+  margin-top: 50px;
 
-  .sideHeader {
+  header {
     display: flex;
     align-items: center;
     justify-content: flex-start;
     margin-bottom: 15px;
+    h1 {
+      margin-bottom: 2px;
+      font-weight: bold;
+    }
+    div {
+      color: rgb(148, 148, 148);
+    }
   }
 
   .myProfile {
+    @include profileStyle;
     width: 40px;
     height: 40px;
     margin-right: 10px;
-    border-radius: 50%;
-    object-fit: cover;
-    object-position: bottom;
   }
 
-  .storySection {
-    height: 180px;
-    overflow: scroll;
-  }
-
-  .sideSection {
+  .story {
     width: 225px;
+    height: 150px;
+    margin-bottom: 10px;
+    overflow: scroll;
+    border: 1px solid rgb(234, 234, 234);
+    border-radius: 3px;
+    background-color: white;
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      margin: 10px 10px;
+    }
+
+    .storyList {
+      list-style: none;
+
+      li {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        margin: 0px 10px 8px;
+
+        div:first-child {
+          margin-bottom: 2px;
+          font-weight: bold;
+        }
+        div:last-child {
+          color: rgb(148, 148, 148);
+        }
+      }
+      img {
+        @include profileStyle;
+        position: relative;
+        width: 26px;
+        height: 26px;
+        margin-right: 10px;
+      }
+    }
+  }
+  .recommend {
+    width: 225px;
+    height: 150px;
     margin-bottom: 10px;
     border: 1px solid rgb(234, 234, 234);
     border-radius: 3px;
     background-color: white;
-  }
 
-  .storyTxt {
-    display: flex;
-    justify-content: space-between;
-    margin: 10px 10px;
-  }
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      margin: 10px 10px;
+    }
 
-  .storyList {
-    list-style: none;
-  }
+    .recommendList {
+      margin: 0px 10px;
+      list-style: none;
 
-  .storyMargin {
-    margin-top: 0px;
-  }
+      li {
+        div:last-child {
+          @include blueTxt;
+          font-size: 13px;
+        }
+        @include flex(row, flex-start, center);
+        margin-bottom: 10px;
 
-  .story {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    margin: 0px 10px 8px;
-  }
+        .listEach {
+          margin-bottm: 10px;
+          width: 132px;
+          :first-child {
+            margin-bottom: 2px;
+            font-weight: bold;
+          }
+          :nth-child(2) {
+            overflow: hidden;
+            color: rgb(148, 148, 148);
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+        }
+      }
+    }
 
-  /* .gradientCircle {
-  position: absolute;
-  margin-left: -2.8px;
-  width: 26px;
-  height: 26px;
-  border: 2px solid transparent;
-  border-radius: 50%;
-  background-image: linear-gradient(.fff, .fff),
-    linear-gradient(to right, rgb(255, 0, 85), orange 100%);
-  background-origin: border-box;
-  background-clip: content-box, border-box;
-}
-*/
-
-  .storyProfile {
-    position: relative;
-    width: 26px;
-    height: 26px;
-    margin-right: 10px;
-    border-radius: 50%;
-    object-fit: cover;
-    object-position: bottom;
-  }
-
-  .recommendFor {
-    display: flex;
-    justify-content: space-between;
-    margin: 10px 10px;
-  }
-
-  .recommendList {
-    margin: 0px 10px;
-    list-style: none;
-  }
-
-  .recommendProfile {
-    position: relative;
-    width: 26px;
-    height: 26px;
-    margin-right: 10px;
-    border-radius: 50%;
-    object-fit: cover;
-    object-position: bottom;
-  }
-
-  .IDtextBox {
-    width: 123px;
-    margin: 0px 10px 0 0;
-  }
-
-  .recommendID {
-    @include flex($direction: row, $align: center, $justify: flex-start);
-    margin-bottom: 8px;
-  }
-
-  .bluelightTxt {
-    color: rgb(178, 222, 255);
-  }
-
-  .br {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
-
-  .blueBrTxt {
-    @include blueTxt;
-    font-size: 13px;
+    img {
+      @include profileStyle;
+      position: relative;
+      width: 26px;
+      height: 26px;
+      margin-right: 10px;
+    }
   }
 
   .horizontalNav {
@@ -320,21 +313,15 @@ main {
   .mainSection {
     margin: 0px auto 10px auto;
   }
+}
 
-  .hidden {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
+.westaCopy {
+  color: rgb(199, 199, 199);
 
-  .westaTxt {
-    color: rgb(204, 204, 204);
-  }
-
-  .westaEtc {
+  .etc {
     margin-bottom: 10px;
   }
-  .westaCopy {
+  .copy {
     font-size: 13px;
   }
 }

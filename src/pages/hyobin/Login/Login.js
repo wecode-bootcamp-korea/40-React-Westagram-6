@@ -30,12 +30,10 @@ const Login = () => {
       setDisable(false);
       setLoginMsg("✅");
       setBtnColor(1);
-      console.log(true);
     } else {
       setDisable(true);
       setLoginMsg("✅ ID 또는 비밀번호를 확인하세요");
       setBtnColor(0.5);
-      console.log(false);
     }
   };
 
