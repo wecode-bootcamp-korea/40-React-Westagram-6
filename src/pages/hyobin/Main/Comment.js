@@ -1,6 +1,14 @@
-import { React } from "react";
-
+import { React, useState } from "react";
 const FeedCommentList = props => {
+  const [heartColor, setHeartColor] = useState(
+    "../../images/hyobin/heart_default.png"
+  );
+  const like = e => {
+    if (e) {
+      setHeartColor("../../images/hyobin/heart_like.png");
+    }
+  };
+
   return (
     <li className="listAlign">
       <div>
@@ -9,12 +17,18 @@ const FeedCommentList = props => {
       </div>
       <form>
         <img
-          src="../../images/hyobin/heart.png"
+          src={heartColor}
           alt="like"
-          width="12px"
-          height="12px"
+          width="15px"
+          height="15px"
+          onClick={like}
         />
-        <span onClick={props.delComment}>✕</span>
+        <img
+          src="../../images/hyobin/delete.png"
+          alt="delete"
+          width="10px"
+          onClick={() => props.delComment(props.index)}
+        />
       </form>
     </li>
   );

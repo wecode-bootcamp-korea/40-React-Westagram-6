@@ -3,7 +3,7 @@ import "./Main.scss";
 import Comment from "./Comment.js";
 
 const Main = () => {
-  const userID = "amelie_108";
+  const userID = "ameliee_108";
   const [getComment, setGetComment] = useState("");
   const [commentList, setCommentList] = useState([]);
 
@@ -17,14 +17,14 @@ const Main = () => {
     setCommentList(newCommentArr);
     setGetComment("");
   };
-
   const delComment = e => {
-    const delCommentArr = [...commentList];
-    setCommentList(delCommentArr.filter(el => el !== e.target.value));
+    setCommentList(commentList => {
+      return commentList.filter((_, index) => index !== e);
+    });
   };
 
   const keyEnter = e => {
-    if (e.key === "Enter") {
+    if (getComment && e.key === "Enter") {
       postComment();
     }
   };
@@ -85,7 +85,7 @@ const Main = () => {
             <div className="feedIcons">
               <div className="leftSide">
                 <img
-                  src="../../images/hyobin/heart.png"
+                  src="../../images/hyobin/navHeart.png"
                   alt="hearticon"
                   width="24px"
                 />
@@ -129,12 +129,16 @@ const Main = () => {
                 </div>
                 <form>
                   <img
-                    src="../../images/hyobin/heart.png"
+                    src="../../images/hyobin/heart_like.png"
                     alt="like"
-                    width="12px"
-                    height="12px"
+                    width="15px"
+                    height="15px"
                   />
-                  <span onClick={delComment}>✕</span>
+                  <img
+                    src="../../images/hyobin/delete.png"
+                    alt="delete"
+                    width="10px"
+                  />
                 </form>
               </li>
               {commentList.map((comment, index) => {
@@ -142,8 +146,9 @@ const Main = () => {
                   <Comment
                     userID={userID}
                     comment={comment}
-                    del={delComment}
                     key={index}
+                    index={index}
+                    delComment={delComment}
                   />
                 );
               })}
