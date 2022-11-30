@@ -30,7 +30,6 @@ const Main = () => {
   return (
     <>
       {/* 네비게이션 바 */}
-      <Nav />
       {/* 메인화면 */}
       <main className="main">
         {/* 메인 왼쪽 피드 */}

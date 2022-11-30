@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -11,10 +11,35 @@ library.add(fab, far, fas);
 
 const Nav = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const dropDownHandler = e => {
+  const dropDownHandler = () => {
     setDropdownOpen(!dropdownOpen);
-    console.log(dropdownOpen);
   };
+
+  // useEffect(() => {
+  //   const checkWindowClick = e => {
+  //     e.stopPropagation();
+  //     const target = e.target.closest(".speech-bubble");
+  //     console.log("target : ", target);
+  //     console.log("open : ", dropdownOpen);
+  //     // if (!dropdownOpen) return;
+  //     if (dropdownOpen && target) {
+  //       console.log("11111");
+  //       window.removeEventListener("click", checkWindowClick);
+  //     } else if (!(dropdownOpen && target === null)) {
+  //       console.log("22222");
+  //       setDropdownOpen(false);
+  //     }
+  //   };
+  //   window.addEventListener("click", checkWindowClick);
+  // }, [dropdownOpen]);
+
+  // const checkWindowClick = e => {
+  //   console.log("2");
+  //   e.stopPropagation();
+  //   console.log(e.target);
+  // };
+
+  // window.addEventListener("click", checkWindowClick);
 
   return (
     <nav className="nav__container">
@@ -61,7 +86,12 @@ const Nav = () => {
         </Link>
 
         {/* 드롭다운*/}
-        {dropdownOpen ? <Dropdown /> : false}
+        {dropdownOpen && (
+          <Dropdown
+            dropdownOpen={dropdownOpen}
+            setDropdownOpen={setDropdownOpen}
+          />
+        )}
       </div>
     </nav>
   );
