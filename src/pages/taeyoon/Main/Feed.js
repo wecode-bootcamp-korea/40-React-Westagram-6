@@ -111,8 +111,8 @@ const Feed = props => {
       <section className="feed__time">{props.time}시간전</section>
 
       {/* 피드 댓글작성 */}
-      <section className="feed__input" onSubmit={onSubmit}>
-        <form className="feed\__input--form">
+      <section className="feed__input">
+        <form className="feed__input--form" onSubmit={onSubmit}>
           <input
             onChange={onChange}
             value={comment}

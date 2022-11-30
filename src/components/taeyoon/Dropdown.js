@@ -5,6 +5,7 @@ import { fab } from "@fortawesome/free-brands-svg-icons";
 import { far } from "@fortawesome/free-regular-svg-icons";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import DROPDOWN_DATA from "./dropdownData";
+import { Link } from "react-router-dom";
 library.add(fab, far, fas);
 
 const Dropdown = props => {
@@ -32,14 +33,22 @@ const Dropdown = props => {
       {DROPDOWN_DATA.map((el, i) => {
         return (
           <div key={el.id} className="speech-box">
-            <FontAwesomeIcon className="fontAwesome" icon={el.icon} size="lg" />
-            <strong>{el.content}</strong>
+            <Link to={el.url}>
+              <FontAwesomeIcon
+                className="fontAwesome"
+                icon={el.icon}
+                size="lg"
+              />
+              <strong>{el.content}</strong>
+            </Link>
           </div>
         );
       })}
 
       <div className="speech-box logout">
-        <strong>로그아웃</strong>
+        <Link>
+          <strong>로그아웃</strong>
+        </Link>
       </div>
     </div>
   );

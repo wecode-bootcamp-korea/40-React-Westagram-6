@@ -84,6 +84,17 @@ a {
 
   & li {
     @include flex(space-between, center);
+
+    & button {
+      border: none;
+      background-color: transparent;
+      margin-right: 5px;
+      &:hover {
+        transition: 0.3s;
+        animation-name: BlowUp;
+        animation-duration: 0.4s;
+      }
+    }
   }
 }
 
@@ -233,7 +244,7 @@ a {
   font-weight: 600;
 }
 
-.speech-box .fontAwesome{
+.speech-box .fontAwesome {
   margin-right: 14px;
 }
 

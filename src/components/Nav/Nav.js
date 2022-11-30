@@ -14,6 +14,30 @@ const Nav = () => {
   const dropDownHandler = () => {
     setDropdownOpen(!dropdownOpen);
   };
+  const [searchInput, setSearchInput] = useState("");
+  const [searchData, setSearchData] = useState([]);
+  useEffect(() => {
+    fetch("/data/searchData.json", {
+      method: "GET",
+    })
+      .then(res => res.json())
+      .then(data => {
+        setSearchData(data);
+      });
+  }, []);
+
+  const searchHandler = e => {
+    setSearchInput(e.target.value);
+  };
+  const searchResult = searchData.map((el, i) => {
+    return searchInput.length > 0 && el.username.includes(searchInput) ? (
+      <li>{el.username}</li>
+    ) : (
+      false
+    );
+  });
+
+  console.log(searchInput);
 
   // useEffect(() => {
   //   const checkWindowClick = e => {
@@ -56,7 +80,13 @@ const Nav = () => {
         </Link>
       </div>
       <div className="nav__search">
-        <input type="text" placeholder="🔍검색1" />
+        <input
+          onChange={searchHandler}
+          value={searchInput}
+          type="text"
+          placeholder="🔍검색1"
+        />
+        <ul>{searchResult}</ul>
       </div>
 
       <div className="nav__right">
