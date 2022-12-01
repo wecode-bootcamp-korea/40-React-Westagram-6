@@ -2,16 +2,25 @@ import React, { useState } from "react";
 import Comment from "./Comment";
 
 const Feed = props => {
-  console.log(props);
   const userID = "ameliee_108";
   const [getComment, setGetComment] = useState("");
   const [commentList, setCommentList] = useState([]);
-  const [feedList, setFeedList] = useState([]);
+
+  const {
+    profileUrl,
+    userid,
+    feedUrl,
+    like_url,
+    like_userID,
+    feed_msg,
+    comment_userID,
+    comment,
+  } = props;
 
   const saveComment = e => {
     setGetComment(e.target.value);
   };
-  // getComment 와 userId를 객체로 넣어주기 -> 해당 객체를 배열로 commentLis에 포함
+
   const postComment = () => {
     const newCommentArr = [...commentList];
     newCommentArr.push(getComment);
@@ -35,8 +44,8 @@ const Feed = props => {
     <section className="feeds">
       <nav>
         <div className="profile">
-          <img src={props.profile_url} alt="feedProfile" width="30px" />
-          <div>{props.userID}</div>
+          <img src={profileUrl} alt="feedProfile" width="30px" />
+          <div>{userid}</div>
         </div>
         <div>
           <img
@@ -48,7 +57,7 @@ const Feed = props => {
         </div>
       </nav>
       <figure>
-        <img src={props.feed_url} width="450px" alt="sky" />
+        <img src={feedUrl} width="450px" alt="sky" />
       </figure>
       <section className="feed">
         <div className="feedIcons">
@@ -78,20 +87,20 @@ const Feed = props => {
           </div>
         </div>
         <div className="likeMsg">
-          <img src={props.like_url} alt="tomato stew" width="24px" />
-          <span>{props.like_userID}</span>
+          <img src={like_url} alt="tomato stew" width="24px" />
+          <span>{like_userID}</span>
           <span>님 외 16명이 좋아합니다</span>
         </div>
         <div className="feedComment">
-          <span>{props.userID}</span>
-          <span>{props.feed_msg}</span>
+          <span>{userid}</span>
+          <span>{feed_msg}</span>
           <span>더 보기</span>
         </div>
         <ul className="commentList">
           <li>
             <div>
-              <span>j{props.comment_userID}</span>
-              <span>{props.comment}</span>
+              <span>j{comment_userID}</span>
+              <span>{comment}</span>
             </div>
             <form>
               <img

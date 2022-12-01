@@ -1,37 +1,10 @@
-import { React, useState, useEffect } from "react";
-import "./Main.scss";
-import Comment from "./Comment.js";
-import Footer from "./Footer.js";
+import React, { useState, useEffect } from "react";
 import Feed from "./Feed";
+import Footer from "./Footer.js";
+import "./Main.scss";
 
 const Main = () => {
-  const userID = "ameliee_108";
-  const [getComment, setGetComment] = useState("");
-  const [commentList, setCommentList] = useState([]);
   const [feedList, setFeedList] = useState([]);
-
-  const saveComment = e => {
-    setGetComment(e.target.value);
-  };
-  // getComment 와 userId를 객체로 넣어주기 -> 해당 객체를 배열로 commentLis에 포함
-  const postComment = () => {
-    const newCommentArr = [...commentList];
-    newCommentArr.push(getComment);
-    setCommentList(newCommentArr);
-    setGetComment("");
-  };
-
-  const delComment = e => {
-    setCommentList(commentList => {
-      return commentList.filter((_, index) => index !== e);
-    });
-  };
-
-  const keyEnter = e => {
-    if (getComment && e.key === "Enter") {
-      postComment();
-    }
-  };
 
   useEffect(() => {
     fetch("/data/FeedData.json", {
@@ -42,6 +15,7 @@ const Main = () => {
         setFeedList(data);
       });
   }, []);
+
   return (
     <>
       <nav className="navBar">
@@ -77,9 +51,9 @@ const Main = () => {
             return (
               <Feed
                 key={feed.id}
-                profile_url={feed.profile_url}
-                userID={feed.userID}
-                feed_url={feed.feed_url}
+                profileUrl={feed.profile_url}
+                userid={feed.userID}
+                feedUrl={feed.feed_url}
                 like_url={feed.like_url}
                 like_userID={feed.like_userID}
                 feed_msg={feed.feed_msg}
