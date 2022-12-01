@@ -57,12 +57,12 @@
 
 main {
   @include flex(row, center, flex-start);
-  margin: 15px;
+  margin: 20px, 15px;
   border-top: 1px solid rgb(234, 234, 234);
   background-color: rgb(246, 246, 246);
 
   .feeds {
-    margin: 50px 20px auto;
+    margin: 50px 20px 20px;
     border: 1px solid rgb(234, 234, 234);
     border-radius: 3px;
     background-color: white;
@@ -85,7 +85,7 @@ main {
       }
     }
 
-    .feedEtc {
+    .feed {
       border-bottom: 1px solid rgb(234, 234, 234);
 
       .feedIcons {
@@ -115,7 +115,7 @@ main {
       height: 20px;
       margin-right: 5px;
     }
-    .userId {
+    :nth-child(2) {
       margin-right: 5px;
       font-weight: bold;
     }
@@ -130,6 +130,9 @@ main {
     :first-child {
       margin-right: 5px;
       font-weight: bold;
+    }
+    :nth-child(2) {
+      margin-right: 5px;
     }
     :last-child {
       color: rgb(148, 148, 148);
@@ -305,21 +308,20 @@ main {
       margin-right: 10px;
     }
   }
-
-  .horizontalNav {
-    list-style: none;
-  }
-
-  .mainSection {
-    margin: 0px auto 10px auto;
-  }
 }
 
 .westaCopy {
+  margin: 0px 2px;
   color: rgb(199, 199, 199);
-
+  line-height: 120%;
+  text-align: initial;
   .etc {
     margin-bottom: 10px;
+    li {
+      display: inline;
+      margin-bottom: 10px;
+      list-style: none;
+    }
   }
   .copy {
     font-size: 13px;

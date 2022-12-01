@@ -1,11 +1,14 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import "./Main.scss";
 import Comment from "./Comment.js";
+import Footer from "./Footer.js";
+import Feed from "./Feed";
 
 const Main = () => {
   const userID = "ameliee_108";
   const [getComment, setGetComment] = useState("");
   const [commentList, setCommentList] = useState([]);
+  const [feedList, setFeedList] = useState([]);
 
   const saveComment = e => {
     setGetComment(e.target.value);
@@ -17,6 +20,7 @@ const Main = () => {
     setCommentList(newCommentArr);
     setGetComment("");
   };
+
   const delComment = e => {
     setCommentList(commentList => {
       return commentList.filter((_, index) => index !== e);
@@ -29,6 +33,15 @@ const Main = () => {
     }
   };
 
+  useEffect(() => {
+    fetch("/data/FeedData.json", {
+      method: "GET",
+    })
+      .then(res => res.json())
+      .then(data => {
+        setFeedList(data);
+      });
+  }, []);
   return (
     <>
       <nav className="navBar">
@@ -51,7 +64,7 @@ const Main = () => {
             <img src="../../images/hyobin/explore.png" alt="navExplore" />
           </span>
           <span>
-            <img src="../../images/hyobin/heart.png" alt="navHeart" />
+            <img src="../../images/hyobin/navheart.png" alt="navHeart" />
           </span>
           <span>
             <img src="../../images/hyobin/profile.png" alt="navProfile" />
@@ -59,123 +72,23 @@ const Main = () => {
         </div>
       </nav>
       <main>
-        <section className="feeds">
-          <nav>
-            <div className="profile">
-              <img
-                src="../../images/hyobin/profile_cafe.jpeg"
-                alt="feedProfile"
-                width="30px"
+        <div>
+          {feedList.map(feed => {
+            return (
+              <Feed
+                key={feed.id}
+                profile_url={feed.profile_url}
+                userID={feed.userID}
+                feed_url={feed.feed_url}
+                like_url={feed.like_url}
+                like_userID={feed.like_userID}
+                feed_msg={feed.feed_msg}
+                comment_userID={feed.comment_userID}
+                comment={feed.comment}
               />
-              <div>ameliee_108</div>
-            </div>
-            <div>
-              <img
-                className="option"
-                src="../../images/hyobin/option.png"
-                alt="option"
-                width="15px"
-              />
-            </div>
-          </nav>
-          <figure>
-            <img src="../../images/hyobin/sky.jpeg" width="450px" alt="sky" />
-          </figure>
-          <section className="feedEtc">
-            <div className="feedIcons">
-              <div className="leftSide">
-                <img
-                  src="../../images/hyobin/navHeart.png"
-                  alt="hearticon"
-                  width="24px"
-                />
-                <img
-                  src="../../images/hyobin/chat.png"
-                  alt="chaticons"
-                  width="21px"
-                />
-                <img
-                  src="../../images/hyobin/share.png"
-                  alt="shareicon"
-                  width="21px"
-                />
-              </div>
-              <div className="rightSide">
-                <img
-                  src="../../images/hyobin/bookmark.png"
-                  alt="bookmark"
-                  width="22px"
-                />
-              </div>
-            </div>
-            <div className="likeMsg">
-              <img
-                src="../../images/hyobin/tomato_stew.jpeg"
-                alt="tomato stew"
-                width="24px"
-              />
-              <span className="userIdStyle">tomatoLover</span>
-              <span>님 외 16명이 좋아합니다</span>
-            </div>
-            <div className="feedComment">
-              <span>ameliee_108</span> 뚝섬 하늘은 ❤️🧡💛💚💙💜 ...
-              <span>더 보기</span>
-            </div>
-            <ul className="commentList">
-              <li>
-                <div>
-                  <span>jjin1006</span>
-                  <span>🌈🌈🌈</span>
-                </div>
-                <form>
-                  <img
-                    src="../../images/hyobin/heart_like.png"
-                    alt="like"
-                    width="15px"
-                    height="15px"
-                  />
-                  <img
-                    src="../../images/hyobin/delete.png"
-                    alt="delete"
-                    width="10px"
-                  />
-                </form>
-              </li>
-              {commentList.map((comment, index) => {
-                return (
-                  <Comment
-                    userID={userID}
-                    comment={comment}
-                    key={index}
-                    index={index}
-                    delComment={delComment}
-                  />
-                );
-              })}
-              <div className="dayStyle">1일 전</div>
-            </ul>
-          </section>
-          <div className="newComment">
-            <input
-              className="borderNone comment"
-              type="text"
-              value={getComment}
-              onChange={saveComment}
-              onKeyPress={keyEnter}
-              placeholder="댓글 달기..."
-            />
-            <button
-              className="borderNone post"
-              type="button"
-              onClick={postComment}
-              style={getComment ? { opacity: 1 } : { opacity: 0.5 }}
-              disabled={!getComment}
-            >
-              게시
-            </button>
-          </div>
-        </section>
-
+            );
+          })}
+        </div>
         <aside className="side">
           <header className="sideHeader">
             <img
@@ -285,13 +198,12 @@ const Main = () => {
               </li>
             </ul>
           </section>
-          <section className="westaCopy">
+          <footer className="westaCopy">
             <div className="etc">
-              Westagram 정보 · 지원 · 홍보 센터 · API · 채용 정보 ·
-              개인정보처리방침 · 약관 · 디렉터리 · 프로필 · 해시태그 · 언어
+              <Footer />
             </div>
             <div className="copy">ⓒ 2022 WESTAGRAM</div>
-          </section>
+          </footer>
         </aside>
       </main>
     </>

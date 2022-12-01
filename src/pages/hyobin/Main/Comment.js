@@ -4,8 +4,10 @@ const FeedCommentList = props => {
     "../../images/hyobin/heart_default.png"
   );
   const like = e => {
-    if (e) {
+    if (e && heartColor == "../../images/hyobin/heart_default.png") {
       setHeartColor("../../images/hyobin/heart_like.png");
+    } else {
+      setHeartColor("../../images/hyobin/heart_default.png");
     }
   };
 

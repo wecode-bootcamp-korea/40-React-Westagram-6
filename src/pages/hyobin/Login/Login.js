@@ -61,6 +61,22 @@ const Login = () => {
             type="button"
             className="btn"
             onClick={goToMain}
+            // onClick={() => {
+            //   fetch("http://10.58.52.93:3000/user/signup", {
+            //     method: "POST",
+            //     headers: {
+            //       "Content-Type": "application/json;charset=utf-8",
+            //     },
+            //     body: JSON.stringify({
+            //       name: "sdfsd",
+            //       profileImage: "",
+            //       email: id,
+            //       password: pw,
+            //     }),
+            //   })
+            //     .then(res => res.json())
+            //     .then(data => console.log(data));
+            // }}
             disabled={disabled}
             style={{ opacity: btnColor }}
           >
