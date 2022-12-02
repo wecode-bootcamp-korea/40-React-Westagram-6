@@ -1,0 +1,16 @@
+.userCommentBox {
+  display: flex;
+  margin-left: 8px;
+  position: relative;
+}
+
+.userName {
+  font-weight: bold;
+}
+
+.userHeartImg {
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  right: 11px;
+}
