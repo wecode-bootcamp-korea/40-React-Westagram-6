@@ -65,8 +65,17 @@
 /* ------------------------------------  Nav ------------------------------------------- */
 /* ------------------------------------  Nav ------------------------------------------- */
 
+// .mainMainRight {
+//   width: 100%;
+//   display: flex;
+//   margin: auto;
+// }
+
 .main {
   margin-top: 100px;
+  display: flex;
+  width: 100%;
+  justify-content: center;
 
   .article {
     width: 472px;
@@ -189,6 +198,23 @@
         }
       }
     }
+  }
+
+  .main-right-footer {
+    // width: 317px;
+    font-size: 14px;
+    display: flex;
+    margin-left: 20px;
+    flex-wrap: wrap;
+    color: #c7c7c7;
+  }
+
+  .mainMainRight {
+    display: flex;
+  }
+
+  .main-right-main {
+    width: 330px;
   }
 }
 

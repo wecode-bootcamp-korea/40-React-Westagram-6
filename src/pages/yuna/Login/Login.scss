@@ -50,6 +50,7 @@ $color: #00376b;
     background-color: #96caf1;
     border: 0px;
     @include radius(3px);
+    margin-bottom: 10px;
     // &:hover {
     //   background-color: rgb(53, 82, 229);
     // }
@@ -61,6 +62,7 @@ $color: #00376b;
     background-color: #2e9ff6;
     border: 0px;
     @include radius(3px);
+    margin-bottom: 10px;
     // &:hover {
     //   background-color: rgb(53, 82, 229);
     // }
