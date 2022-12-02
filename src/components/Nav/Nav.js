@@ -43,33 +43,6 @@ const Nav = () => {
       );
     }
   });
-
-  // useEffect(() => {
-  //   const checkWindowClick = e => {
-  //     e.stopPropagation();
-  //     const target = e.target.closest(".speech-bubble");
-  //     console.log("target : ", target);
-  //     console.log("open : ", dropdownOpen);
-  //     // if (!dropdownOpen) return;
-  //     if (dropdownOpen && target) {
-  //       console.log("11111");
-  //       window.removeEventListener("click", checkWindowClick);
-  //     } else if (!(dropdownOpen && target === null)) {
-  //       console.log("22222");
-  //       setDropdownOpen(false);
-  //     }
-  //   };
-  //   window.addEventListener("click", checkWindowClick);
-  // }, [dropdownOpen]);
-
-  // const checkWindowClick = e => {
-  //   console.log("2");
-  //   e.stopPropagation();
-  //   console.log(e.target);
-  // };
-
-  // window.addEventListener("click", checkWindowClick);
-
   return (
     <nav className="nav__container">
       <div className="nav__left">

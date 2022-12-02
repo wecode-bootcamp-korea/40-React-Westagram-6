@@ -9,25 +9,6 @@ import { Link } from "react-router-dom";
 library.add(fab, far, fas);
 
 const Dropdown = props => {
-  // const dropdownOpen = props.dropdownOpen;
-  // const setDropdownOpen = props.setDropdownOpen;
-  // console.log(dropdownOpen);
-  // useEffect(() => {
-  //   const checkWindowClick = e => {
-  //     e.stopPropagation();
-  //     const target = e.target.closest(".speech-bubble");
-  //     console.log("target : ", target);
-  //     console.log("open : ", dropdownOpen);
-  //     if (dropdownOpen && target) {
-  //       console.log("11111");
-  //       return;
-  //     } else {
-  //       console.log("22222");
-  //       // setDropdownOpen(false);
-  //     }
-  //   };
-  //   window.addEventListener("click", checkWindowClick);
-  // }, [dropdownOpen]);
   return (
     <div className="speech-bubble nav_dropdown">
       {DROPDOWN_DATA.map((el, i) => {
@@ -54,5 +35,3 @@ const Dropdown = props => {
   );
 };
 export default Dropdown;
-
-//  useEffect stoppropaganda
