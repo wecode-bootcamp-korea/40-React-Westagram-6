@@ -1,0 +1,329 @@
+@import "https://fonts.googleapis.com/css2?family=Lobster&display=swap";
+@import "../../../styles/common";
+@import "../../../styles/mixin";
+
+.txtBold {
+  font-weight: bold;
+}
+
+.navBar {
+  @include flex(row, space-between, center);
+  margin: 15px 80px;
+
+  .logo {
+    @include flex(row, center, center);
+
+    .img {
+      width: 24px;
+      height: 24px;
+      margin-right: 15px;
+
+      text-decoration-line: none;
+    }
+
+    .textLogo {
+      padding-left: 15px;
+      border-left: 2px solid rgb(55, 55, 55);
+      color: black;
+      font-family: "Lobster", cursive;
+      font-size: 30px;
+      text-decoration-line: none;
+    }
+  }
+
+  .searchBox {
+    width: 200px;
+    height: 20px;
+    border: 1px solid rgb(234, 234, 234);
+    border-radius: 2px;
+    background-color: rgb(246, 246, 246);
+
+    &::placeholder {
+      font-size: 14px;
+      text-align: center;
+    }
+  }
+
+  .etc {
+    span {
+      margin-right: 15px;
+      img {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+}
+
+main {
+  @include flex(row, center, flex-start);
+  margin: 20px, 15px;
+  border-top: 1px solid rgb(234, 234, 234);
+  background-color: rgb(246, 246, 246);
+
+  .feeds {
+    margin: 50px 20px 20px;
+    border: 1px solid rgb(234, 234, 234);
+    border-radius: 3px;
+    background-color: white;
+
+    nav {
+      @include flex(row, space-between, center);
+      .profile {
+        @include flex(row, space-between, center);
+        font-weight: bold;
+        img {
+          @include profileStyle;
+          width: 25px;
+          height: 25px;
+          margin: 11px;
+        }
+      }
+
+      .option {
+        margin: 10px;
+      }
+    }
+
+    .feed {
+      border-bottom: 1px solid rgb(234, 234, 234);
+
+      .feedIcons {
+        @include flex(row, space-between, center);
+        .leftSide {
+          margin: 5px 5px;
+          img {
+            margin: 0px 5px;
+          }
+        }
+        .rightSide {
+          margin: 5px 5px;
+        }
+      }
+    }
+  }
+
+  .likeMsg {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0 10px 5px 10px;
+
+    img {
+      @include profileStyle;
+      width: 20px;
+      height: 20px;
+      margin-right: 5px;
+    }
+    :nth-child(2) {
+      margin-right: 5px;
+      font-weight: bold;
+    }
+  }
+
+  .feedComment {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0 10px 5px 10px;
+
+    :first-child {
+      margin-right: 5px;
+      font-weight: bold;
+    }
+    :nth-child(2) {
+      margin-right: 5px;
+    }
+    :last-child {
+      color: rgb(148, 148, 148);
+    }
+  }
+
+  .commentList {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-bottom: 5px;
+
+    li {
+      display: flex;
+      justify-content: space-between;
+      width: 430px;
+      margin: 0 10px 5px 10px;
+      div {
+        :first-child {
+          margin-right: 5px;
+          font-weight: bold;
+        }
+      }
+      form {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        :first-child {
+          margin-right: 5px;
+        }
+      }
+    }
+
+    .dayStyle {
+      margin: 0 10px 5px 10px;
+      color: rgb(148, 148, 148);
+    }
+  }
+}
+
+.newComment {
+  @include flex(center, space-between, row);
+  margin: 10px 5px;
+
+  .post {
+    opacity: 0.5;
+    background-color: white;
+    color: rgb(0, 110, 253);
+  }
+
+  .borderNone {
+    border-style: none;
+  }
+  .comment {
+    width: 400px;
+  }
+}
+
+.side {
+  width: 225px;
+  margin-top: 50px;
+
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 15px;
+    h1 {
+      margin-bottom: 2px;
+      font-weight: bold;
+    }
+    div {
+      color: rgb(148, 148, 148);
+    }
+  }
+
+  .myProfile {
+    @include profileStyle;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+  }
+
+  .story {
+    width: 225px;
+    height: 150px;
+    margin-bottom: 10px;
+    overflow: scroll;
+    border: 1px solid rgb(234, 234, 234);
+    border-radius: 3px;
+    background-color: white;
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      margin: 10px 10px;
+    }
+
+    .storyList {
+      list-style: none;
+
+      li {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        margin: 0px 10px 8px;
+
+        div:first-child {
+          margin-bottom: 2px;
+          font-weight: bold;
+        }
+        div:last-child {
+          color: rgb(148, 148, 148);
+        }
+      }
+      img {
+        @include profileStyle;
+        position: relative;
+        width: 26px;
+        height: 26px;
+        margin-right: 10px;
+      }
+    }
+  }
+  .recommend {
+    width: 225px;
+    height: 150px;
+    margin-bottom: 10px;
+    border: 1px solid rgb(234, 234, 234);
+    border-radius: 3px;
+    background-color: white;
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      margin: 10px 10px;
+    }
+
+    .recommendList {
+      margin: 0px 10px;
+      list-style: none;
+
+      li {
+        div:last-child {
+          @include blueTxt;
+          font-size: 13px;
+        }
+        @include flex(row, flex-start, center);
+        margin-bottom: 10px;
+
+        .listEach {
+          margin-bottm: 10px;
+          width: 132px;
+          :first-child {
+            margin-bottom: 2px;
+            font-weight: bold;
+          }
+          :nth-child(2) {
+            overflow: hidden;
+            color: rgb(148, 148, 148);
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+        }
+      }
+    }
+
+    img {
+      @include profileStyle;
+      position: relative;
+      width: 26px;
+      height: 26px;
+      margin-right: 10px;
+    }
+  }
+}
+
+.westaCopy {
+  margin: 0px 2px;
+  color: rgb(199, 199, 199);
+  line-height: 120%;
+  text-align: initial;
+  .etc {
+    margin-bottom: 10px;
+    li {
+      display: inline;
+      margin-bottom: 10px;
+      list-style: none;
+    }
+  }
+  .copy {
+    font-size: 13px;
+  }
+}

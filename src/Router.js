@@ -15,6 +15,7 @@ const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/" element={<LoginHyobin />} />
         <Route path="/login-hyobin" element={<LoginHyobin />} />
         <Route path="/main-hyobin" element={<MainHyobin />} />
         <Route path="/login-yuna" element={<LoginYuna />} />
