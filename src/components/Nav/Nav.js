@@ -26,18 +26,23 @@ const Nav = () => {
       });
   }, []);
 
-  const searchHandler = e => {
+  // 네비 검색기능 핸들러
+  const navSearchHandler = e => {
     setSearchInput(e.target.value);
   };
-  const searchResult = searchData.map((el, i) => {
-    return searchInput.length > 0 && el.username.includes(searchInput) ? (
-      <li>{el.username}</li>
-    ) : (
-      false
-    );
+  const searchResult = searchData.map(el => {
+    if (
+      (searchInput.length > 0 && el.username.includes(searchInput)) ||
+      (searchInput.length > 0 && el.name.toLowerCase().includes(searchInput))
+    ) {
+      return (
+        <li key={el.id}>
+          <div className="korean_name">{el.username}</div>
+          <div className="english_name">{el.name}</div>
+        </li>
+      );
+    }
   });
-
-  console.log(searchInput);
 
   // useEffect(() => {
   //   const checkWindowClick = e => {
@@ -80,13 +85,15 @@ const Nav = () => {
         </Link>
       </div>
       <div className="nav__search">
-        <input
-          onChange={searchHandler}
-          value={searchInput}
-          type="text"
-          placeholder="🔍검색1"
-        />
-        <ul>{searchResult}</ul>
+        <div className="nav__search--input">
+          <input
+            onChange={navSearchHandler}
+            value={searchInput}
+            type="text"
+            placeholder="🔍검색"
+          />
+          <ul>{searchResult}</ul>
+        </div>
       </div>
 
       <div className="nav__right">

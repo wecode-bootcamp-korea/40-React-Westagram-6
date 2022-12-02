@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 // import { Link } from "react-router-dom";
 import Feed from "./Feed";
 import Recommend from "../../../components/taeyoon/Recommend";
@@ -118,7 +119,7 @@ const Main = () => {
         </aside>
       </main>
       {/* 검색창 */}
-      {/* <div className="speech-bubble">
+      <div className="speech-bubble">
         <div className="speech-box">
           <div className="user__container">
             <div className="user__left">
@@ -141,7 +142,7 @@ const Main = () => {
             </div>
           </div>
         </div>
-      </div> */}
+      </div>
     </>
   );
 };

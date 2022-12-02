@@ -159,10 +159,12 @@ a {
 .main__right--story {
   border: $border_style;
   border-radius: 5px;
-  height: 240px;
   padding: 10px 0;
   background-color: white;
-  overflow: auto;
+  & ul {
+    overflow: auto;
+    max-height: 200px;
+  }
 }
 
 .story__header {

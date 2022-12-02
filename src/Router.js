@@ -20,8 +20,10 @@ const Router = () => {
       <Routes>
         <Route path="/login-hyobin" element={<LoginHyobin />} />
         <Route path="/main-hyobin" element={<MainHyobin />} />
+
         <Route path="/login-yuna" element={<LoginYuna />} />
         <Route path="/main-yuna" element={<MainYuna />} />
+
         <Route path="/login-taeyoon" element={<LoginTaeyoon />} />
         <Route path="/main-taeyoon" element={<MainTaeyoon />} />
       </Routes>

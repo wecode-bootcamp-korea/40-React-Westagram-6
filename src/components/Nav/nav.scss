@@ -82,3 +82,16 @@ body {
     }
   }
 }
+
+.nav__search--input {
+  position: relative;
+  & ul {
+    position: absolute;
+    background-color: white;
+    width: 100%;
+    & li {
+      padding: 10px;
+      border: 1px solid black;
+    }
+  }
+}
