@@ -10,15 +10,20 @@ import MainYuna from "./pages/yuna/Main/Main";
 import LoginTaeyoon from "./pages/taeyoon/Login/Login";
 import MainTaeyoon from "./pages/taeyoon/Main/Main";
 
+import Nav from "./components/Nav/Nav";
+
 // import 한 컴포넌트에 대한 경로를 각각 설정해줍니다.
 const Router = () => {
   return (
     <BrowserRouter>
+      <Nav />
       <Routes>
         <Route path="/login-hyobin" element={<LoginHyobin />} />
         <Route path="/main-hyobin" element={<MainHyobin />} />
+
         <Route path="/login-yuna" element={<LoginYuna />} />
         <Route path="/main-yuna" element={<MainYuna />} />
+
         <Route path="/login-taeyoon" element={<LoginTaeyoon />} />
         <Route path="/main-taeyoon" element={<MainTaeyoon />} />
       </Routes>
