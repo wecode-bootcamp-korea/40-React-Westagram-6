@@ -231,7 +231,7 @@ a {
 /* 말풍선 */
 
 .speech-bubble {
-  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+  box-shadow: $box_shadow;
   position: relative;
   border-radius: 0.7em;
   width: 330px;

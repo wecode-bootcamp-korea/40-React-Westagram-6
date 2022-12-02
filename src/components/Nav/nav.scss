@@ -54,14 +54,14 @@ body {
     }
   }
 }
-
+// 검색 인풋창
 .nav__search {
   & span {
     display: none;
   }
 
   & input {
-    width: 100px;
+    width: 130px;
     height: 30px;
     border: $border_style;
     border-radius: 5px;
@@ -82,16 +82,32 @@ body {
     }
   }
 }
-
+// 검색창 드롭다운
 .nav__search--input {
   position: relative;
+
   & ul {
     position: absolute;
     background-color: white;
     width: 100%;
+    box-shadow: $box_shadow;
+    border-radius: 10px;
+
     & li {
       padding: 10px;
-      border: 1px solid black;
+      border-bottom: 1px solid $black_02;
+
+      &:last-child {
+        border: none;
+      }
+
+      & div:first-child {
+        font-weight: 600;
+      }
+
+      & div:last-child {
+        color: $black_06;
+      }
     }
   }
 }
